@@ -7,7 +7,9 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
-    "reactstrap": "^8.1.1"
+    "reactstrap": "^8.1.1",
+    "apollo-server": "^2.9.7",
+    "graphql": "^14.5.8"
   },
   "scripts": {
     "start": "react-scripts start",
