@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>SWAPP</h1>
+        <h1 className="title">SWAPP</h1>
       </header>
         <main>
             <Login></Login>

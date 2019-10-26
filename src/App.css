@@ -1,3 +1,9 @@
+.title {
+  font-family: StarWars, sans-serif;
+  color: white;
+}
+
+
 .App {
   text-align: center;
 }
