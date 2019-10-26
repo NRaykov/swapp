@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 /* Import Apollo Server */
-import ApolloServer from 'apollo-server';
+// import ApolloServer from 'apollo-server';
 
 /* Bootstrap 4.3 */
 import 'bootstrap/dist/css/bootstrap.css';

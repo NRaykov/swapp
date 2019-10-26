@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login/Login.js'
 
 function App() {
   return (
@@ -8,6 +9,9 @@ function App() {
       <header className="App-header">
         <h1>SWAPP</h1>
       </header>
+        <main>
+            <Login></Login>
+        </main>
     </div>
   );
 }
