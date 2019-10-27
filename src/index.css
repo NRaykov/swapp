@@ -14,6 +14,7 @@ html {
   /* 1rem = 10px */
   font-size: 62.5%;
 }
+
 @media(max-width: 640px) {
   html {
     /* 1rem = 10px */
@@ -34,3 +35,34 @@ body {
   font-size: 1.6rem;
 }
 
+/*** Navigation - Overrides Bootstrap CSS ***/
+.nav-item {
+  margin: 1rem;
+}
+
+a {
+  transition: all .3s;
+}
+a:hover {
+ color: #e8f0fd;
+}
+
+.navbar-toggler {
+  height: 3.5rem;
+  width: 4rem;
+  background-color: white;
+}
+
+.navbar-light .navbar-brand {
+    color: #f8e35a;
+}
+.navbar-light .navbar-brand:hover {
+    color: #ffffff;
+}
+.navbar-light .navbar-nav .nav-link {
+   color: #72d5dc;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
