@@ -4,15 +4,15 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 /* Global Styles */
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 /* Import Apollo Server */
 // import ApolloServer from 'apollo-server';
 
-import './fonts/SfDistantGalaxy-0l3d.ttf'
+import './fonts/SfDistantGalaxy-0l3d.ttf';
+import { RouteNavigation } from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<RouteNavigation  />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

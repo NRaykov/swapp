@@ -1,0 +1,9 @@
+.cardPanel {
+    margin: 3rem 0;
+}
+.title {
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #5ed8e2;
+    font-family: 'StarWars';
+}
