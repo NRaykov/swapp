@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+/* Bootstrap 4.3 */
+import 'bootstrap/dist/css/bootstrap.css';
+/* Global Styles */
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 /* Import Apollo Server */
 // import ApolloServer from 'apollo-server';
-
-/* Bootstrap 4.3 */
-import 'bootstrap/dist/css/bootstrap.css';
 
 import './fonts/SfDistantGalaxy-0l3d.ttf'
 

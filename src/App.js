@@ -1,17 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login/Login.js'
+import Login from './components/Login/Login.js';
+import { Container, Row, Col } from 'reactstrap';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="title">SWAPP</h1>
       </header>
-        <main>
+        <Container>
             <Login></Login>
-        </main>
+        </Container>
     </div>
   );
 }
