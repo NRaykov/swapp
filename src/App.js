@@ -5,7 +5,6 @@ import Login from './components/Login/Login.js';
 import Episodes from "./pages/episodes/Episodes";
 import Characters from "./pages/characters/Characters";
 
-
 import './App.css';
 import {Container, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, Navbar} from 'reactstrap';
 import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //LogOut
@@ -47,7 +46,7 @@ export const RouteNavigation = () => {
                   </Navbar>
                 </div>
               </header>
-              <Container>
+              <Container fluid>
                 <Route path="/login" component={Login}/>
                 <Route exact path="/"
                         render={props =>
