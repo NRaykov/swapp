@@ -9,14 +9,40 @@ import * as serviceWorker from './serviceWorker';
 
 
 /* Import Apollo Server */
-//import { ApolloServer } from 'apollo-server'
+import ApolloClient, { gql} from 'apollo-boost'
 
 
 
 import './fonts/SfDistantGalaxy-0l3d.ttf';
 import { RouteNavigation } from './App';
 
+
+const client = new ApolloClient({
+  uri: "http://api.spacex.land/graphql/"
+});
+
+const QUERY = gql`
+query {
+    missions {
+      id
+      name
+      description
+      wikipedia
+    }
+  }
+`;
+
+
 ReactDOM.render(<RouteNavigation  />, document.getElementById('root'));
+
+
+client.query({query: QUERY}).then(data => {
+  console.log(data)
+  window.addEventListener('load', ()=> {
+    document.getElementById("app").innerHTML = JSON.stringify(data)
+  });
+
+});
 
 
 
