@@ -33,46 +33,44 @@ export const RouteComponent = () => {
           <Router>
             <ThemeProvider theme={theme}>
               <ThemeStyles />
-            <div className="App">
-              <header className="App-header">
-                <div className="container-fluid">
-                  <Navbar className="navbar" light expand="md">
-                    <NavbarBrand href="/" className="logo">swapp</NavbarBrand>
-                    <NavbarToggler onClick={toggle}/>
-                    <Collapse isOpen={isOpen} navbar>
-                      <Nav className="ml-auto" navbar>
-                        <NavItem>
-                          <Link to="/">Episodes</Link>
-                        </NavItem>
-                        <NavItem>
-                          <Link to="/characters">Characters</Link>
-                        </NavItem>
-                        <NavItem>
-                          <LoginButton/>
-                        </NavItem>
-                      </Nav>
-                    </Collapse>
-                  </Navbar>
-                </div>
-              </header>
-              <Container fluid>
-                <Route path="/login" component={Login}/>
-                <Route exact path="/"
-                        render={props =>
-                            isAuthenticated ? (
-                              <Episodes/>
-                            ) : ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
-                        }
-                />
-                <Route  path="/characters"
-                        render={props =>
-                                isAuthenticated ? (
-                                        <Characters/>
-                                ) : ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
-                        }
-                />
-              </Container>
-            </div>
+              <div className="container-main">
+                <header className="header">
+                    <Navbar className="navbar" light expand="md">
+                      <NavbarBrand href="/" className="logo">swapp</NavbarBrand>
+                      <NavbarToggler onClick={toggle}/>
+                      <Collapse isOpen={isOpen} navbar>
+                        <Nav className="ml-auto" navbar>
+                          <NavItem>
+                            <Link className="nav-link" to="/">Episodes</Link>
+                          </NavItem>
+                          <NavItem>
+                            <Link className="nav-link" to="/characters">Characters</Link>
+                          </NavItem>
+                          <NavItem>
+                            <LoginButton/>
+                          </NavItem>
+                        </Nav>
+                      </Collapse>
+                    </Navbar>
+                </header>
+                <Container fluid>
+                  <Route path="/login" component={Login}/>
+                  <Route exact path="/"
+                          render={props =>
+                              isAuthenticated ? (
+                                <Episodes/>
+                              ) : ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
+                          }
+                  />
+                  <Route  path="/characters"
+                          render={props =>
+                                  isAuthenticated ? (
+                                          <Characters/>
+                                  ) : ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
+                          }
+                  />
+                </Container>
+              </div>
             </ThemeProvider>
 
           </Router>

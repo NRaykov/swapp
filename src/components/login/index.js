@@ -19,7 +19,7 @@ const Login = () => {
       <React.Fragment>
           <div className={`${styles.formPanel}`}>
 
-              <h1 className={`${styles.title}`}>SWAPP</h1>
+              <h1 className={`${styles.primaryHeading}`}>SWAPP</h1>
 
               <Form className={`${styles.formGroupPanel}`}>
                   <span className={`${styles.msgLogin}`}>You need to login</span>

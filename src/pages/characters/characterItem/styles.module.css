@@ -1,22 +1,29 @@
-.cardPanel {
+.characterItem .cardPanel {
     display: flex;
     flex-direction: row;
     margin: 3rem 0;
-    max-height: 17rem;
+    max-height: 18rem;
     border-radius: 1rem;
+    border: 1px solid #393d3f;
+    background-color: #393d3f;
 }
-.cardBody {
+
+.characterItem .cardBody {
     display: flex;
     align-items: center;
+    justify-content: center;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
-.thumbnail {
-    width: 8rem;
-    height: 8rem;
-    margin: 0.7rem;
+.characterItem .thumbnail {
+    width: 17.8rem;
+    height: 17.8rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }
-.title {
+.characterItem .primaryHeading {
     margin: 2rem 0;
-    font-size: 2rem;
-    color: #5ed8e2;
+    font-size: 2.6rem;
+    color: #FFE300;
     font-family: 'StarWars';
 }

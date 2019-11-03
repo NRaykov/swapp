@@ -12,64 +12,64 @@ const state = [
   {
     id: 1,
     title: "Yoda",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
   {
     id: 2,
     title: "Yoda 1",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
 
   {
     id: 3,
     title: "Yoda 2",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
   {
     id: 4,
     title: "Yoda 3",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
   {
     id: 5,
     title: "Yoda 4",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
   {
     id: 6,
     title: "Yoda 5",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
   {
     id: 7,
     title: "Yoda 6",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
   {
     id: 8,
     title: "Yoda 7",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
 
   {
     id: 9,
     title: "Yoda 8",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
   {
     id: 10,
     title: "Yoda 9",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
   {
     id: 11,
     title: "Yoda 10",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
   {
     id: 12,
     title: "Yoda 11",
-    img: "https://via.placeholder.com/80"
+    img: "https://via.placeholder.com/178"
   },
 ];
 
