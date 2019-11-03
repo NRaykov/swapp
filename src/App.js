@@ -1,24 +1,27 @@
 import React, {useState} from 'react';
 //Navigation and login
 import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
-import {Container, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, Navbar} from 'reactstrap';
+import { NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, Navbar} from 'reactstrap';
 import {isAuthenticated, signout} from './guards/auth';
 import Login from './components/login/';
+import Container from './components/container/container';
 
 //Styling
 import './App.css';
 import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //Icons
-import { ThemeProvider } from 'emotion-theming';
-import theme from '@rebass/preset';
-import ThemeStyles from './components/themeStyles/themeStyles.js';
+import styled, { ThemeProvider } from 'styled-components/macro';
+import { themes } from './components';
+
+
 
 //Pages
 import Episodes from "./pages/episodes/episodesList/";
 import Characters from "./pages/characters/charactersList/";
 
 
-
 export const RouteComponent = () => {
+
+  const [theme, setTheme] = useState('light');
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -31,12 +34,12 @@ export const RouteComponent = () => {
 
   return (
           <Router>
-            <ThemeProvider theme={theme}>
-              <ThemeStyles />
-              <div className="container-main">
+            <ThemeProvider theme={themes[theme]}>
+              <Container variant="primary" className="container-main">
                 <header className="header">
                     <Navbar className="navbar" light expand="md">
-                      <NavbarBrand href="/" className="logo">swapp</NavbarBrand>
+                      <NavbarBrand href="/" className="logo"
+                           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light') }>swapp</NavbarBrand>
                       <NavbarToggler onClick={toggle}/>
                       <Collapse isOpen={isOpen} navbar>
                         <Nav className="ml-auto" navbar>
@@ -53,7 +56,8 @@ export const RouteComponent = () => {
                       </Collapse>
                     </Navbar>
                 </header>
-                <Container fluid className="pt-7">
+
+                <div className="container-fluid h-100 d-flex align-items-center">
                   <Route path="/login" component={Login}/>
                   <Route exact path="/"
                           render={props =>
@@ -69,10 +73,10 @@ export const RouteComponent = () => {
                                   ) : ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
                           }
                   />
-                </Container>
-              </div>
-            </ThemeProvider>
+                </div>
 
+              </Container>
+            </ThemeProvider>
           </Router>
   )
 };

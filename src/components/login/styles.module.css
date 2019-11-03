@@ -46,12 +46,13 @@
     border-radius: 0.7rem;
 }
 .input {
+    width: 100%;
     font-size: 1.5rem;
     margin: 3rem 0;
     padding: 2rem 1rem;
-    background-color: #e8f0fd;
-    color: #ccc;
     font-weight: bold;
+    border: none;
+    border-radius: 1rem;
 }
 .error {
     font-weight: bold;

@@ -33,9 +33,9 @@ ReactDOM.render(<RouteComponent  />, document.getElementById('root'));
 
 
 client.query({query: QUERY}).then(data => {
-  console.log(data);
+  // console.log(data);
   window.addEventListener('load', ()=> {
-    document.getElementById("app").innerHTML = JSON.stringify(data)
+   // document.getElementById("app").innerHTML = JSON.stringify(data)
   });
 
 });
