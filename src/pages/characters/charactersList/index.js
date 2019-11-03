@@ -4,7 +4,7 @@ import { isAuthenticated } from '../../../guards/auth.js';
 import { withRouter } from 'react-router-dom';
 import CharacterItem from "../characterItem/index.js";
 import {Row} from "reactstrap";
-import styles from "./styles.module.css";
+//import styles from "./styles.module.css";
 
 
 //Placeholder

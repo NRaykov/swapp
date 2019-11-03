@@ -4,12 +4,12 @@ import styles from "./styles.module.css";
 
 const EpisodeItem = ({img, title, text}) => {
   return (
-          <Col md="4">
+          <Col md="4" className={ styles.episodeItem }>
             <Card className={styles.cardPanel}>
-              <CardImg top width="100%" src={img} className="img-fluid" alt="Card image cap" />
-              <CardBody>
+              <CardImg top width="100%" src={img} className={`${styles.thumbnail} img-fluid`} alt="Episode" />
+              <CardBody className={`${styles.cardBody}`} >
                 <CardTitle className={`${styles.title} title-global`}>{title}</CardTitle>
-                <CardText>{text}</CardText>
+                <CardText className={`${styles.text}`} >{text}</CardText>
               </CardBody>
             </Card>
           </Col>

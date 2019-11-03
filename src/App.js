@@ -53,7 +53,7 @@ export const RouteComponent = () => {
                       </Collapse>
                     </Navbar>
                 </header>
-                <Container fluid>
+                <Container fluid className="pt-7">
                   <Route path="/login" component={Login}/>
                   <Route exact path="/"
                           render={props =>

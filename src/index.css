@@ -67,7 +67,9 @@ a:hover { color: #e8f0fd; }
     transition: all 0.3s;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:active {
     color: #3da8bd;
 }
 
@@ -75,9 +77,10 @@ a:hover { color: #e8f0fd; }
 /*** ****************************** ***/
 .header {
     width: 100%;
-    margin-bottom: 2rem;
+    position: fixed;
     background-color: #333;
     padding: 0 1.5rem;
+    z-index: 2;
 }
 .card-body {
     background-color: #333;
@@ -100,3 +103,14 @@ a:hover { color: #e8f0fd; }
 
 .loginButton:hover {  background-color: #f8e35a; }
 .loginButton:hover svg { color: white; }
+
+
+
+
+
+
+/*** ******** Utilities *********** ***/
+/*** ****************************** ***/
+.pt-7 {
+    padding-top: 7rem;
+}
