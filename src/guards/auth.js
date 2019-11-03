@@ -1,4 +1,4 @@
-export let isAuthenticated = false;
+export let isAuthenticated = true;
 
 // SignIn Method
 export const authenticate = onDone => {

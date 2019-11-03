@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-
 import { NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, Navbar} from 'reactstrap';
 import {isAuthenticated, signout} from './guards/auth';
 import Login from './components/login/';
-import Container from './components/container/container';
+import Container from './components/elements/container/container';
 
 //Styling
 import './App.css';
@@ -38,8 +38,9 @@ export const RouteComponent = () => {
               <Container variant="primary" className="container-main">
                 <header className="header">
                     <Navbar className="navbar" light expand="md">
-                      <NavbarBrand href="/" className="logo"
-                           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light') }>swapp</NavbarBrand>
+                      <NavbarBrand href="#" className="logo"
+                           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light') }
+                      >swapp</NavbarBrand>
                       <NavbarToggler onClick={toggle}/>
                       <Collapse isOpen={isOpen} navbar>
                         <Nav className="ml-auto" navbar>
@@ -57,24 +58,19 @@ export const RouteComponent = () => {
                     </Navbar>
                 </header>
 
-                <div className="container-fluid h-100 d-flex align-items-center">
+                <div className="container pt-5">
                   <Route path="/login" component={Login}/>
                   <Route exact path="/"
-                          render={props =>
-                              isAuthenticated ? (
-                                <Episodes/>
-                              ) : ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
+                          render={props => isAuthenticated ? ( <Episodes/> ) :
+                                      ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
                           }
                   />
                   <Route  path="/characters"
-                          render={props =>
-                                  isAuthenticated ? (
-                                          <Characters/>
-                                  ) : ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
+                          render={props => isAuthenticated ? ( <Characters/> ) :
+                                  ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
                           }
                   />
                 </div>
-
               </Container>
             </ThemeProvider>
           </Router>

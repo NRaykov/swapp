@@ -2,10 +2,7 @@
     margin: 3rem auto;
     max-width: 40rem;
     border-radius: 1rem;
-    border: 1px solid #3C4858;
-    background-color: #3C4858;
     height: 80rem;
-    color: #afb2b4;
 }
 .episodeItem .thumbnail {
     border-top-left-radius: 1rem;
@@ -14,17 +11,18 @@
 .episodeItem .cardBody {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    padding: 1.5rem;
 }
 .episodeItem .title {
     margin: 2rem 0;
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     color: #FFE300;
     font-family: 'StarWars';
 }
 .episodeItem .text {
-    height: 30rem;
+    height: 20rem;
     line-height: 2.7rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: inherit;
     overflow: hidden;
 }

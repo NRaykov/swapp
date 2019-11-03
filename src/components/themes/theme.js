@@ -1,22 +1,28 @@
 const theme = {
   light: {
-    colors: {
-      bg: '#ed2639',
-      text: '#3c4858',
+    container: {
+      primary: {
+        backgroundColor: '#E8EAED',
+        text: '#4E5B6E'
+      }
     },
-    cards: {
+    card: {
       primary: {
         border: '1px solid',
-        borderRadius: 3,
-        borderColor: '#5223f2',
+        borderColor: '#E5E9F2',
         backgroundColor: '#fff',
       },
     },
-    buttons: {
+    button: {
       primary: {
-        color: 'inherit',
-        backgroundColor: '#ffa60b',
+        color: '#FFE300',
+        backgroundColor: '#000',
         cursor: 'pointer',
+      },
+    },
+    form: {
+      primary: {
+        backgroundColor: '#fff',
       },
     },
     inputs: {
@@ -26,43 +32,32 @@ const theme = {
         backgroundColor: '#EFF2F7',
       },
     },
-    container: {
-      primary: {
-        backgroundColor: '#f7464f',
-      },
-    }
   },
   dark: {
-    colors: {
-      bg: '#8492a6',
-      text: '#8492a6',
-    },
-    cards: {
+    container: {
       primary: {
-        border: '1px solid',
-        borderColor: '#3c4858',
-        borderRadius: 3,
-        backgroundColor: '#1f2d3d',
+        backgroundColor: '#000',
+        color: '#abb1ba'
       },
     },
-    buttons: {
+    card: {
       primary: {
-        color: '#fff',
-        backgroundColor: '#ffa60b',
-        cursor: 'pointer',
-      },
-      outline: {
-        color: '#fff',
         border: '1px solid',
-        borderColor: '#3c4858',
-        backgroundColor: '#273444',
+        borderColor: '#3C4858',
+        backgroundColor: '#333',
+      },
+    },
+    button: {
+      primary: {
+        color: '#FFE300',
+        backgroundColor: '#4BD5EE',
         cursor: 'pointer',
       },
-      link: {
-        padding: 0,
-        color: 'inherit',
-        backgroundColor: 'transparent',
-        cursor: 'pointer',
+    },
+    form: {
+      primary: {
+        backgroundColor: '#333',
+        color: '#fff'
       },
     },
     inputs: {
@@ -71,13 +66,8 @@ const theme = {
         borderColor: '#3C4858',
         backgroundColor: '#fff',
       },
-    },
-    container: {
-      primary: {
-        backgroundColor: '#000',
-      },
     }
-  },
+  }
 };
 
 export default theme;

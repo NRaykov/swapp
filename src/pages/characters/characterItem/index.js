@@ -1,15 +1,17 @@
 import React from 'react';
-import {Card, CardBody, CardImg, CardTitle, Col } from "reactstrap";
+import {CardBody, CardImg, CardTitle, Col } from "reactstrap";
 import styles from "./styles.module.css";
+
+import Card from "../../../components/elements/card/card";
 
 const CharacterItem = ({img, title}) => {
   return (
           <Col md="4" className={ styles.characterItem }>
-            <Card className={styles.cardPanel}>
+            <Card variant="primary" className={styles.cardPanel}>
                 <CardImg src={img} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
-                <CardBody className={`${styles.cardBody}`}>
+                <div className={`${styles.cardBody}`}>
                   <CardTitle className={styles.primaryHeading}>{title}</CardTitle>
-                </CardBody>
+                </div>
             </Card>
           </Col>
   )

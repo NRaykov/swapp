@@ -6,8 +6,10 @@ import { authenticate } from '../../guards/auth.js';
 import styles from './styles.module.css';
 import {themes} from "../index";
 import styled, {ThemeProvider} from 'styled-components/macro';
-import { Button, Form, FormGroup, } from 'reactstrap';
-import Input from '../inputs/inputs';
+import {  FormGroup, } from 'reactstrap';
+import Input from '../elements/inputs/inputs';
+import From from '../elements/form/form';
+import Button from '../elements/button/button';
 
 
 
@@ -30,8 +32,8 @@ const Login = () => {
                           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                       >SWAPP</h1>
 
-                      <Form className={`${styles.formGroupPanel}`}>
-                          <span className={`${styles.msgLogin}`}>You need to login</span>
+                      <From variant="primary" className={`${styles.formGroupPanel}`}>
+                          <span>You need to login</span>
                           <div className={`${styles.error}`}>Invalid credentials!</div>
                           <FormGroup>
                               <Input variant="primary" className={`${styles.input}`} type="email" name="email" id="emailAddress" placeholder="email"/>
@@ -40,9 +42,9 @@ const Login = () => {
                               <Input variant="primary" className={`${styles.input}`} type="password" name="password" id="password" placeholder="password" />
                           </FormGroup>
                           <div className={`${styles.buttonPanel}`}>
-                          <Button className={`${styles.btnLogin}`} onClick={login}>Login</Button>
+                              <Button variant="primary" className={`${styles.btnLogin}`} onClick={login}>Login</Button>
                           </div>
-                      </Form>
+                      </From>
                   </div>
               </React.Fragment>
            </ThemeProvider>
