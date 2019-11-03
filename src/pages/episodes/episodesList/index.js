@@ -1,10 +1,12 @@
 import React from 'react';
-import Login from '../../components/Login/Login.js';
-import { isAuthenticated, signout } from '../../guards/auth.js';
+//import Login from '../../../components/login/';
+import { isAuthenticated } from '../../../guards/auth.js';
 import { withRouter } from 'react-router-dom';
 
 import { Row } from 'reactstrap';
-import Item from "./Item";
+import EpisodeItem from "../episodeItem";
+
+// import styles from "./styles.module.css";
 
 
 //Placeholder
@@ -55,16 +57,16 @@ const Episodes = withRouter(({ history }) =>
                         {/*TODO Fetch Data from DB*/}
                         { state.map((element) => {
                             return (
-                                  <Item key={element.id}
-                                        title={element.title}
-                                        text={element.text}
-                                        img={element.img}/>
+                                  <EpisodeItem key={element.id}
+                                         title={element.title}
+                                         text={element.text}
+                                         img={element.img}/>
                             )
                           })
                         }
                       </Row>
                     </React.Fragment>
 
-            ) : ( <Login/> ),
+            ) : ( <EpisodeItem/> ),
         );
 export default Episodes;

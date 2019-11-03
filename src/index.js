@@ -1,20 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { RouteComponent } from './App';
 /* Bootstrap 4.3 */
 import 'bootstrap/dist/css/bootstrap.css';
 /* Global Styles */
 import './index.css';
+import './fonts/SfDistantGalaxy-0l3d.ttf';
+
 import * as serviceWorker from './serviceWorker';
-
-
 
 /* Import Apollo Server */
 import ApolloClient, { gql} from 'apollo-boost'
-
-
-
-import './fonts/SfDistantGalaxy-0l3d.ttf';
-import { RouteNavigation } from './App';
 
 
 const client = new ApolloClient({
@@ -33,7 +29,7 @@ query {
 `;
 
 
-ReactDOM.render(<RouteNavigation  />, document.getElementById('root'));
+ReactDOM.render(<RouteComponent  />, document.getElementById('root'));
 
 
 client.query({query: QUERY}).then(data => {

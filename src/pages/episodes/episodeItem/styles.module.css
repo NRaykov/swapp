@@ -1,0 +1,12 @@
+.cardPanel {
+    margin: 3rem auto;
+    max-width: 400px;
+    border: none;
+    border-radius: 10px;
+}
+.title {
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #FFE300;
+    font-family: 'StarWars';
+}

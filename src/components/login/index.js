@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+// Authenticate Methods
 import { Redirect } from 'react-router-dom';
+import { authenticate } from '../../guards/auth.js';
+
+// Styles and Forms
 import styles from './styles.module.css';
 import { Button, Form, FormGroup, Input, } from 'reactstrap';
-import { isAuthenticated, authenticate, signout } from '../../guards/auth.js';
 
-const Login = props => {
+const Login = () => {
 
     const [shouldRedirect, setShouldRedirect] = useState(false);
     const login = () => authenticate(() => setShouldRedirect(true));
-    //const pleaseLogIn = 'Please Login';
+    //const pleaseLogIn = 'Please login';
 
     if (shouldRedirect) return <Redirect to={'/'} />;
 

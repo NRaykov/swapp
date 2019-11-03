@@ -1,21 +1,28 @@
 import React, {useState} from 'react';
+//Navigation and login
 import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
-import {isAuthenticated, signout} from './guards/auth';
-import Login from './components/Login/Login.js';
-import Episodes from "./pages/episodes/Episodes";
-import Characters from "./pages/characters/Characters";
-
-import './App.css';
 import {Container, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, Navbar} from 'reactstrap';
-import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //LogOut
+import {isAuthenticated, signout} from './guards/auth';
+import Login from './components/login/';
+
+//Styling
+import './App.css';
+import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //Icons
+import { ThemeProvider } from 'emotion-theming';
+import theme from '@rebass/preset';
+import ThemeStyles from './components/themeStyles/themeStyles.js';
+
+//Pages
+import Episodes from "./pages/episodes/episodesList/";
+import Characters from "./pages/characters/charactersList/";
 
 
-export const RouteNavigation = () => {
+
+export const RouteComponent = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-
-  //****  Login Button Component
+  //****  login Button Component
   const LoginButton = withRouter(({ history }) =>
           isAuthenticated ? (
                <NavLink onClick={() => signout(() => history.push('/'))} className="loginButton"><FaSignOutAlt/></NavLink>
@@ -24,6 +31,8 @@ export const RouteNavigation = () => {
 
   return (
           <Router>
+            <ThemeProvider theme={theme}>
+              <ThemeStyles />
             <div className="App">
               <header className="App-header">
                 <div className="container-fluid">
@@ -64,6 +73,8 @@ export const RouteNavigation = () => {
                 />
               </Container>
             </div>
+            </ThemeProvider>
+
           </Router>
   )
 };

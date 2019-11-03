@@ -1,9 +1,10 @@
 import React from 'react';
-import Login from '../../components/Login/Login.js';
-import { isAuthenticated, signout } from '../../guards/auth.js';
+//import Login from '../../../components/login/';
+import { isAuthenticated } from '../../../guards/auth.js';
 import { withRouter } from 'react-router-dom';
-import Item from "./Item.js";
+import CharacterItem from "../characterItem/index.js";
 import {Row} from "reactstrap";
+import styles from "./styles.module.css";
 
 
 //Placeholder
@@ -72,22 +73,22 @@ const state = [
   },
 ];
 
-const Characters = withRouter(({ history }) =>
+const Episodes = withRouter(({ history }) =>
             isAuthenticated ? (
                     <React.Fragment>
                       <Row>
                         {/*TODO Fetch Data from DB*/}
                         { state.map((element) => {
                           return (
-                                  <Item key={element.id}
-                                        title={element.title}
-                                        img={element.img}/>
+                                  <CharacterItem key={element.id}
+                                         title={element.title}
+                                         img={element.img}/>
                           )
                         })
                         }
                       </Row>
                     </React.Fragment>
 
-            ) : ( <Login/> ),
+            ) : ( <CharacterItem/> ),
         );
-export default Characters;
+export default Episodes;

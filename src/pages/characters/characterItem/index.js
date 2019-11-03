@@ -1,8 +1,8 @@
 import React from 'react';
-import {Card, CardBody, CardImg, CardText, CardTitle, Col, Row} from "reactstrap";
+import {Card, CardBody, CardImg, CardTitle, Col } from "reactstrap";
 import styles from "./styles.module.css";
 
-const Item = ({img, title}) => {
+const CharacterItem = ({img, title}) => {
   return (
           <Col md="4">
             <Card className={styles.cardPanel}>
@@ -14,4 +14,4 @@ const Item = ({img, title}) => {
           </Col>
   )
 };
-export default Item;
+export default CharacterItem;
