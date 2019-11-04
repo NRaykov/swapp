@@ -9,7 +9,7 @@ import Container from './components/elements/container/container';
 //Styling
 import './App.css';
 import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //Icons
-import styled, { ThemeProvider } from 'styled-components/macro';
+import { ThemeProvider } from 'styled-components/macro';
 import { themes } from './components';
 
 

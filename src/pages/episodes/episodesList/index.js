@@ -1,12 +1,9 @@
 import React from 'react';
-//import Login from '../../../components/login/';
 import { isAuthenticated } from '../../../guards/auth.js';
 import { withRouter } from 'react-router-dom';
 
 import { Row } from 'reactstrap';
 import EpisodeItem from "../episodeItem";
-
-// import styles from "./styles.module.css";
 
 
 //Placeholder

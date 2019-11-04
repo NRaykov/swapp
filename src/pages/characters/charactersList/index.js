@@ -1,13 +1,10 @@
 import React from 'react';
-//import Login from '../../../components/login/';
 import { isAuthenticated } from '../../../guards/auth.js';
 import { withRouter } from 'react-router-dom';
 import CharacterItem from "../characterItem/index.js";
 import {Row} from "reactstrap";
-//import styles from "../../../components/login/styles.module.css";
 import Button from "../../../components/elements/button/button";
 import styles from "./styles.module.css";
-import From from "../../../components/login";
 
 
 //Placeholder
