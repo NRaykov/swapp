@@ -13,6 +13,11 @@ const theme = {
         backgroundColor: '#fff',
       },
     },
+    heading: {
+      primary: {
+        color: '#4BD5EE'
+      },
+    },
     button: {
       primary: {
         color: '#FFE300',
@@ -38,6 +43,11 @@ const theme = {
       primary: {
         backgroundColor: '#000',
         color: '#abb1ba'
+      },
+    },
+    heading: {
+      primary: {
+        color: '#FFE300'
       },
     },
     card: {

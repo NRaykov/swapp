@@ -1,8 +1,9 @@
 import React from 'react';
-import {CardBody, CardImg, CardTitle, Col } from "reactstrap";
+import {CardImg, Col } from "reactstrap";
 import styles from "./styles.module.css";
 
 import Card from "../../../components/elements/card/card";
+import Heading from "../../../components/elements/heading/heading";
 
 const CharacterItem = ({img, title}) => {
   return (
@@ -10,7 +11,7 @@ const CharacterItem = ({img, title}) => {
             <Card variant="primary" className={styles.cardPanel}>
                 <CardImg src={img} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
                 <div className={`${styles.cardBody}`}>
-                  <CardTitle className={styles.primaryHeading}>{title}</CardTitle>
+                  <Heading variant="primary" className={styles.primaryHeading}>{title}</Heading>
                 </div>
             </Card>
           </Col>

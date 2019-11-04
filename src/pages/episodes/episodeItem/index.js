@@ -3,6 +3,7 @@ import {CardImg, CardText, CardTitle, Col} from "reactstrap";
 import styles from "./styles.module.css";
 
 import Card from "../../../components/elements/card/card";
+import Heading from "../../../components/elements/heading/heading";
 
 const EpisodeItem = ({img, title, text}) => {
   return (
@@ -10,7 +11,7 @@ const EpisodeItem = ({img, title, text}) => {
             <Card variant="primary" className={styles.cardPanel}>
               <CardImg top width="100%" src={img} className={`${styles.thumbnail} img-fluid`} alt="Episode" />
                 <div className={`${styles.cardBody}`} >
-                  <CardTitle className={`${styles.title} title-global`}>{title}</CardTitle>
+                  <Heading variant="primary" className={`${styles.title} title-global`}>{title}</Heading>
                   <CardText className={`${styles.text}`} >{text}</CardText>
                 </div>
             </Card>

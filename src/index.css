@@ -55,11 +55,10 @@ a:hover { color: #e8f0fd; }
     width: 4rem;
     background-color: white;
 }
-.navbar-light .navbar-brand {
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus
+{
     color: #f8e35a;
-}
-.navbar-light .navbar-brand:hover {
-    color: #ffffff;
 }
 .navbar-light .navbar-nav .nav-link {
     font-size: 1.6rem;
