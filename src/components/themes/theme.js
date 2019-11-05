@@ -18,6 +18,11 @@ const theme = {
         color: '#4BD5EE'
       },
     },
+    subheading: {
+      primary: {
+        color: '#3C4858'
+      },
+    },
     button: {
       primary: {
         color: '#FFE300',
@@ -48,6 +53,11 @@ const theme = {
     heading: {
       primary: {
         color: '#FFE300'
+      },
+    },
+    subheading: {
+      primary: {
+        color: '#4BD5EE'
       },
     },
     card: {

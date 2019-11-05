@@ -1,0 +1,25 @@
+.headingPanel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.textPanel,
+.cardPanel {
+    margin: 3rem 0;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.cardPanel {
+    width: 100%;
+}
+.title {
+    font-size: 3.8rem;
+    font-family: 'StarWars';
+}
+.subtitle {
+    font-size: 3rem;
+    font-family: 'StarWars';
+}

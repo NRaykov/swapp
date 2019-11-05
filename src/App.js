@@ -16,6 +16,7 @@ import { themes } from './components';
 
 //Pages
 import Episodes from "./pages/episodes/episodesList/";
+import Episode from "./pages/episodes/episodeView/";
 import Characters from "./pages/characters/charactersList/";
 import Character from "./pages/characters/characterView/";
 
@@ -51,7 +52,7 @@ export const RouteComponent = () => {
 
                           {/*Temporay Route*/}
                           <NavItem>
-                            <Link className="nav-link" to="/">Episode View</Link>
+                            <Link className="nav-link" to="/episode">Episode View</Link>
                           </NavItem>
                           <NavItem>
                             <Link className="nav-link" to="/characters">Characters</Link>
@@ -83,7 +84,7 @@ export const RouteComponent = () => {
                   />
                   {/*Temporay Route*/}
                   <Route  path="/episode"
-                          component={Character}
+                          component={Episode}
                   />
                   {/*Temporay Route*/}
                   <Route path="/character" component={Character}/>
