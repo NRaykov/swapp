@@ -112,3 +112,11 @@ a:hover { color: #e8f0fd; }
 .pt-5 {
     padding-top: 5rem;
 }
+
+.pb-5 {
+    padding-bottom: 5rem;
+}
+.py-5 {
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+}

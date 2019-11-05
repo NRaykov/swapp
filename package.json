@@ -2,6 +2,13 @@
   "name": "swapp",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NRaykov/swapp"
+  },
+  "author": "nedyalko raykov",
+  "email": "ned.raykov@gmail.com",
+  "license": "MIT",
   "dependencies": {
     "@apollo/react-hooks": "3.0.0",
     "@emotion/core": "10.0.21",

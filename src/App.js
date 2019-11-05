@@ -19,6 +19,7 @@ import Episodes from "./pages/episodes/episodesList/";
 import Episode from "./pages/episodes/episodeView/";
 import Characters from "./pages/characters/charactersList/";
 import Character from "./pages/characters/characterView/";
+import Starship from "./pages/starships/starshipView";
 
 
 export const RouteComponent = () => {
@@ -62,6 +63,11 @@ export const RouteComponent = () => {
                           <NavItem>
                             <Link className="nav-link" to="/character">Character View</Link>
                           </NavItem>
+
+                          {/*Temporaty Route*/}
+                          <NavItem>
+                            <Link className="nav-link" to="/starship">Starship View</Link>
+                          </NavItem>
                           <NavItem>
                             <LoginButton/>
                           </NavItem>
@@ -70,7 +76,7 @@ export const RouteComponent = () => {
                     </Navbar>
                 </header>
 
-                <div className="container pt-5">
+                <div className="container py-5">
                   <Route path="/login" component={Login}/>
                   <Route exact path="/"
                           render={props => isAuthenticated ? ( <Episodes/> ) :
@@ -88,6 +94,9 @@ export const RouteComponent = () => {
                   />
                   {/*Temporay Route*/}
                   <Route path="/character" component={Character}/>
+
+                  {/*Temporay Route*/}
+                  <Route path="/starship" component={Starship}/>
                 </div>
               </Container>
             </ThemeProvider>

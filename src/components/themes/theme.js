@@ -23,11 +23,24 @@ const theme = {
         color: '#3C4858'
       },
     },
+    info: {
+      primary: {
+        color: '#4BD5EE'
+      },
+    },
     button: {
       primary: {
         color: '#FFE300',
         backgroundColor: '#000',
         cursor: 'pointer',
+      },
+    },
+    separator: {
+      primary: {
+        width: '100%',
+        marginTop: '2.5rem',
+        marginBottom: '3rem',
+        borderTop: '1px solid #000'
       },
     },
     form: {
@@ -72,6 +85,19 @@ const theme = {
         color: '#FFE300',
         backgroundColor: '#4BD5EE',
         cursor: 'pointer',
+      },
+    },
+    separator: {
+      primary: {
+        width: '100%',
+        marginTop: '2.5rem',
+        marginBottom: '3rem',
+        borderTop: '1px solid #fff'
+      },
+    },
+    info: {
+      primary: {
+        color: '#FFE300'
       },
     },
     form: {
