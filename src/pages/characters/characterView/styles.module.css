@@ -1,0 +1,28 @@
+.characterItem .cardPanel {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 1rem 0;
+    max-height: 18rem;
+    border-radius: 1rem;
+}
+
+.characterItem .cardBody {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+.characterItem .thumbnail {
+    width: 10rem;
+    height: 10rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.characterItem .primaryHeading {
+    margin: 2rem 0;
+    font-size: 2rem;
+    font-family: 'StarWars';
+}

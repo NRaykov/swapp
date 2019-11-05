@@ -17,6 +17,7 @@ import { themes } from './components';
 //Pages
 import Episodes from "./pages/episodes/episodesList/";
 import Characters from "./pages/characters/charactersList/";
+import Character from "./pages/characters/characterView/";
 
 
 export const RouteComponent = () => {
@@ -47,8 +48,18 @@ export const RouteComponent = () => {
                           <NavItem>
                             <Link className="nav-link" to="/">Episodes</Link>
                           </NavItem>
+
+                          {/*Temporay Route*/}
+                          <NavItem>
+                            <Link className="nav-link" to="/">Episode View</Link>
+                          </NavItem>
                           <NavItem>
                             <Link className="nav-link" to="/characters">Characters</Link>
+                          </NavItem>
+
+                          {/*Temporaty Route*/}
+                          <NavItem>
+                            <Link className="nav-link" to="/character">Character View</Link>
                           </NavItem>
                           <NavItem>
                             <LoginButton/>
@@ -70,6 +81,12 @@ export const RouteComponent = () => {
                                   ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
                           }
                   />
+                  {/*Temporay Route*/}
+                  <Route  path="/episode"
+                          component={Character}
+                  />
+                  {/*Temporay Route*/}
+                  <Route path="/character" component={Character}/>
                 </div>
               </Container>
             </ThemeProvider>
