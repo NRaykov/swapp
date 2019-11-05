@@ -1,0 +1,54 @@
+.title {
+    margin: 2rem 0;
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'StarWars';
+}
+.primaryHeading {
+    margin: 2rem 0;
+    font-size: 2rem;
+    font-family: 'StarWars';
+}
+.cardPanel {
+    padding: 1rem 4rem;
+    border-radius: 1rem;
+}
+.cardTitle {
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 2.2rem;
+    font-family: 'StarWars';
+}
+.cardBody {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+.thumbnail {
+    max-width: 560px;
+    max-height: 560px;
+    height: 100%;
+    width: 100%;
+}
+.infoList {
+    margin: 0;
+    padding: 1rem 0;
+    list-style: none;
+}
+.infoListItem {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.infoPanel {
+    margin: 1rem;
+}
+
+/** TODO Chart Styles **/
+.chartPanel {
+
+}
+

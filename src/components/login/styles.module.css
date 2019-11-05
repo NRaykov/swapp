@@ -1,0 +1,60 @@
+.primaryHeading {
+    font-family: 'StarWars';
+    color: #f8e35a;
+    font-size: 12rem;
+    text-align: center;
+    cursor: pointer;
+}
+@media(max-width: 640px) {
+    .title {
+        font-size: 7rem;
+    }
+}
+.formPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%;
+    max-width: 70rem;
+    margin: 0 auto;
+    font-size: 1.6rem;
+    background-color: #000000;
+}
+.formGroupPanel {
+    padding: 2rem;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #333333;
+    border-radius: 0.5rem;
+}
+.buttonPanel {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.buttonPanel .btnLogin {
+    font-family: 'RobotoBlack';
+    padding: 0.7rem 2.7rem;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    border: none;
+    border-radius: 0.7rem;
+}
+.input {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.7rem;
+}
+.error {
+    font-weight: bold;
+    color: #d97a49;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    text-align: left;
+}
+
