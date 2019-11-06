@@ -17,6 +17,8 @@ import './App.css';
 import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //Icons
 import { ThemeProvider } from 'styled-components/macro';
 import { themes } from './components';
+import ThemeChanger from './components/themeChanger';
+
 //Styled Components
 import Button from "./components/elements/button/button";
 //Pages
@@ -29,25 +31,14 @@ import { gql } from 'graphql.macro';
 
 
 export const RouteComponent = () => {
-
-    /* TODO Create ThemeChanger Component */
+    /**** Set Theme to LocalStorage ****/
     const [theme, setTheme] = useState('light');
-
-    // const toggleTheme = () => {
-    //     if (theme === 'light') {
-    //         setTheme('dark');
-    //         localStorage.setItem('Theme', theme);
-    //     } else {
-    //         setTheme('light');
-    //         localStorage.setItem('Theme', theme);
-    //     }
-    // };
-    // const getTheme = localStorage.getItem('Theme');
+    const themeChanger = ThemeChanger(theme, setTheme);
+    const getTheme = localStorage.getItem('Theme');
 
 
-  /**** Test Apollo Client - Fetch demo data ****/
-  const cache = new InMemoryCache();
-
+    /**** Test Apollo Client - Fetch demo data ****/
+    const cache = new InMemoryCache();
     const httpLink = createHttpLink({
         uri: 'http://softuni-swapp-212366186.eu-west-1.elb.amazonaws.com/graphql',
     });
@@ -57,11 +48,9 @@ export const RouteComponent = () => {
         link: authLink.concat(httpLink),
         typeDefs
     });
-
     console.log(client);
 
     const isAuthed = !!localStorage.getItem('token');
-
     console.log(isAuthed);
 
     cache.writeData({
@@ -72,7 +61,7 @@ export const RouteComponent = () => {
 
 
 
-    const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
   //****  login Button Component
   const LoginButton = withRouter(({ history }) =>
@@ -84,12 +73,12 @@ export const RouteComponent = () => {
   return (
       <ApolloProvider client={client}>
           <Router>
-            <ThemeProvider theme={themes[theme]}>
+            <ThemeProvider theme={themes[getTheme]}>
               <Container variant="primary" className="container-main">
                 <header className="header">
                     <Navbar className="navbar" light expand="md">
                       <NavbarBrand href="#" className="logo"
-
+                           onClick={ themeChanger }
                       >swapp</NavbarBrand>
                       <NavbarToggler onClick={toggle}/>
                       <Collapse isOpen={isOpen} navbar>
@@ -124,7 +113,7 @@ export const RouteComponent = () => {
                 </header>
 
                 <div className="container py-5">
-                  <Route path="/login" component={Login}/>
+                  <Route path="/login" component={() => <Login themeChanger={themeChanger}/> }/>
                   <Route exact path="/"
                           render={props => isAuthenticated ? ( <Episodes/> ) :
                                       ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )

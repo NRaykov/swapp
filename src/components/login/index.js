@@ -13,7 +13,7 @@ import Button from '../elements/button/button';
 
 
 //TODO make authentication
-const Login = () => {
+const Login = ({themeChanger}) => {
 
     const [shouldRedirect, setShouldRedirect] = useState(false);
     const login = () => authenticate(() => setShouldRedirect(true));
@@ -26,7 +26,7 @@ const Login = () => {
                   <div className={`${styles.formPanel}`}>
 
                       <h1 className={`${styles.primaryHeading}`}
-
+                            onClick={themeChanger}
                       >SWAPP</h1>
 
                       <From variant="primary" className={`${styles.formGroupPanel}`}>
