@@ -8,7 +8,7 @@ import ls from 'local-storage';
 
 //Navigation and login
 import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
-import { NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, Navbar} from 'reactstrap';
+import { NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, Navbar} from 'reactstrap';
 import {isAuthenticated, signout} from './guards/auth';
 import Login from './components/login/';
 import Container from './components/elements/container/container';
@@ -18,6 +18,8 @@ import './App.css';
 import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //Icons
 import { ThemeProvider } from 'styled-components/macro';
 import { themes } from './components';
+//Styled Components
+import Button from "./components/elements/button/button";
 
 
 
@@ -61,8 +63,8 @@ export const RouteComponent = () => {
   //****  login Button Component
   const LoginButton = withRouter(({ history }) =>
           isAuthenticated ? (
-               <NavLink onClick={() => signout(() => history.push('/'))} className="loginButton"><FaSignOutAlt/></NavLink>
-          ) : ( <NavLink to="/login" className="loginButton"><FaSignInAlt/></NavLink> ),
+               <Button  variant="primary" onClick={() => signout(() => history.push('/'))} className="loginButton"><FaSignOutAlt/></Button>
+          ) : ( <Button variant="primary"  to="/login" className="loginButton"><FaSignInAlt/></Button> ),
   );
 
   return (

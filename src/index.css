@@ -88,6 +88,7 @@ a:hover { color: #e8f0fd; }
 }
 
 .logo { font-size: 3rem;  font-family: 'StarWars'; }
+
 .loginButton {
     width: 3.5rem;
     height: 3.5rem;
@@ -95,12 +96,12 @@ a:hover { color: #e8f0fd; }
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
+    color: inherit;
+    border: none;
 }
-.loginButton svg { color: #72d5dc; }
-
-.loginButton:hover {  background-color: #f8e35a; }
-.loginButton:hover svg { color: white; }
+.loginButton {
+    background-color: #FFE300;
+}
 
 
 
