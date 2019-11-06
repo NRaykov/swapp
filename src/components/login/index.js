@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { authenticate } from '../../guards/auth.js';
 // Styles and Forms
 import styles from './styles.module.css';
-import {themes} from "../index";
+//import {themes} from "../index";
 import {ThemeProvider} from 'styled-components/macro';
 import {  FormGroup, } from 'reactstrap';
 import Input from '../elements/inputs/inputs';
@@ -15,8 +15,6 @@ import Button from '../elements/button/button';
 //TODO make authentication
 const Login = () => {
 
-    const [theme, setTheme] = useState('light');
-
     const [shouldRedirect, setShouldRedirect] = useState(false);
     const login = () => authenticate(() => setShouldRedirect(true));
     //const pleaseLogIn = 'Please login';
@@ -24,12 +22,11 @@ const Login = () => {
     if (shouldRedirect) return <Redirect to={'/'} />;
 
     return (
-           <ThemeProvider theme={themes[theme]}>
               <React.Fragment>
                   <div className={`${styles.formPanel}`}>
 
                       <h1 className={`${styles.primaryHeading}`}
-                          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                          onClick={toggleTheme}
                       >SWAPP</h1>
 
                       <From variant="primary" className={`${styles.formGroupPanel}`}>
@@ -47,7 +44,6 @@ const Login = () => {
                       </From>
                   </div>
               </React.Fragment>
-           </ThemeProvider>
 )};
 
 export default Login;
