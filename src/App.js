@@ -26,7 +26,8 @@ export const RouteComponent = () => {
 
   const [theme, setTheme] = useState('light');
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+
   const toggle = () => setIsOpen(!isOpen);
   //****  login Button Component
   const LoginButton = withRouter(({ history }) =>
