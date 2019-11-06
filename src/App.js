@@ -1,4 +1,8 @@
 import React, {useState} from 'react';
+
+//LocalStorage
+import ls from 'local-storage';
+
 //Navigation and login
 import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
 import { NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, Navbar} from 'reactstrap';
@@ -25,9 +29,11 @@ import Starship from "./pages/starships/starshipView";
 export const RouteComponent = () => {
 
   const [theme, setTheme] = useState('light');
+  //TODO Check 'useEffect' hooks
+
+
 
   const [isOpen, setIsOpen] = useState(true);
-
   const toggle = () => setIsOpen(!isOpen);
   //****  login Button Component
   const LoginButton = withRouter(({ history }) =>
@@ -43,7 +49,20 @@ export const RouteComponent = () => {
                 <header className="header">
                     <Navbar className="navbar" light expand="md">
                       <NavbarBrand href="#" className="logo"
-                           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light') }
+                           onClick={
+                             () => {
+
+
+                               setTheme(theme === 'light' ? 'dark' : 'light')
+                                console.log(themes[theme]);
+
+                               //Set current theme to localStorage
+                               ls.set('Theme', themes[theme]);
+
+                             }
+
+
+                           }
                       >swapp</NavbarBrand>
                       <NavbarToggler onClick={toggle}/>
                       <Collapse isOpen={isOpen} navbar>
