@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 //Apollo Boost
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from "apollo-boost";
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { createHttpLink } from 'apollo-link-http';
+import authLink from './server/auth';
+import {typeDefs} from './server/local'
 
 //LocalStorage
 import ls from 'local-storage';
@@ -29,31 +33,65 @@ import Episode from "./pages/episodes/episodeView/";
 import Characters from "./pages/characters/charactersList/";
 import Character from "./pages/characters/characterView/";
 import Starship from "./pages/starships/starshipView";
-import {gql} from "apollo-boost/lib/index";
+import { gql } from 'graphql.macro';
 
 
 export const RouteComponent = () => {
 
 
   /**** Test Apollo Client - Fetch demo data ****/
-    const client = new ApolloClient({
+    // const client = new ApolloClient({
+    //     uri: 'http://softuni-swapp-212366186.eu-west-1.elb.amazonaws.com/graphql',
+    // });
+    //
+    // client.query({
+    //     query: gql`
+    //   {
+    //     rates(currency: "USD") {
+    //       currency
+    //     }
+    //   }
+    // `
+    // }).then(result => console.log(result));
+
+
+
+
+
+
+  const cache = new InMemoryCache();
+
+    const httpLink = createHttpLink({
         uri: 'http://softuni-swapp-212366186.eu-west-1.elb.amazonaws.com/graphql',
     });
 
-    client.query({
-        query: gql`
-      {
-        rates(currency: "USD") {
-          currency
-        }
-      }
-    `
-    }).then(result => console.log(result));
+    const client = new ApolloClient({
+        cache,
+        link: authLink.concat(httpLink),
+        typeDefs
+    });
+
+    console.log(client);
+
+    const isAuthed = !!localStorage.getItem('token');
+
+    console.log(isAuthed);
+
+    cache.writeData({
+        data: {
+            authenticated: isAuthed,
+        },
+    });
 
 
 
 
-  const [theme, setTheme] = useState('light');
+
+
+
+
+
+    const [theme, setTheme] = useState('light');
   //TODO Check 'useEffect' hooks
 
 
