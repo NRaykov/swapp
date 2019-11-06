@@ -10,6 +10,8 @@ import Separator from "../../../components/elements/separator/separator";
 import InfoText from "../../../components/elements/infotext/infotext";
 import Row from "reactstrap/es/Row";
 import StarshipItem from "../../starships/starshipItem";
+import {Link} from "react-router-dom";
+import EpisodeItem from "../../episodes/episodesList";
 
 const Character = ({}) => {
 
@@ -52,18 +54,14 @@ const starships = [
       },
 ];
 
-
-
-
-
-
-
   return (
           <>
           <Row>
             <Col className="col-md-12">
               <Heading variant="primary" className={styles.title}>{characterDetails[0].name}</Heading>
             </Col>
+          </Row>
+          <Row>
             <Col className="col-md-12">
               <Separator variant="primary"/>
             </Col>
@@ -94,16 +92,19 @@ const starships = [
             <Col md="6">
                 <Subheading variant="primary" className={styles.title}>Piloted Starships</Subheading>
                 <Separator variant="primary"/>
-
-                {/*TODO Fetch Data from DB*/}
-                { starships.map((element) => {
-                  return (
-                          <StarshipItem key={element.id}
-                                        model={element.model}
-                                        img={element.img}/>
-                  )
-                })
-                }
+                  {/*TODO Fetch Data from DB*/}
+                  { starships.map((element) => {
+                    return (
+                            <div>
+                              <Link key={element.id} to={`/starship/${element.id}`} className={ styles.starshipPanel }>
+                                <StarshipItem key={element.id}
+                                              model={element.model}
+                                              img={element.img}/>
+                              </Link>
+                            </div>
+                    )
+                  })
+                  }
             </Col>
           </Row>
           </>

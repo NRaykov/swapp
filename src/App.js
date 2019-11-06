@@ -86,23 +86,8 @@ export const RouteComponent = () => {
                           <NavItem>
                             <Link className="nav-link" to="/">Episodes</Link>
                           </NavItem>
-
-                          {/*Temporay Route*/}
-                          <NavItem>
-                            <Link className="nav-link" to="/episode">Episode View</Link>
-                          </NavItem>
                           <NavItem>
                             <Link className="nav-link" to="/characters">Characters</Link>
-                          </NavItem>
-
-                          {/*Temporaty Route*/}
-                          <NavItem>
-                            <Link className="nav-link" to="/character">Character View</Link>
-                          </NavItem>
-
-                          {/*Temporaty Route*/}
-                          <NavItem>
-                            <Link className="nav-link" to="/starship">Starship View</Link>
                           </NavItem>
                           <NavItem>
                             <LoginButton/>
@@ -114,6 +99,7 @@ export const RouteComponent = () => {
 
                 <div className="container py-5">
                   <Route path="/login" component={() => <Login themeChanger={themeChanger}/> }/>
+
                   <Route exact path="/"
                           render={props => isAuthenticated ? ( <Episodes/> ) :
                                       ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
@@ -124,15 +110,12 @@ export const RouteComponent = () => {
                                   ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
                           }
                   />
-                  {/*Temporay Route*/}
-                  <Route  path="/episode"
+                  <Route  path="/episodes/:id"
                           component={Episode}
                   />
-                  {/*Temporay Route*/}
-                  <Route path="/character" component={Character}/>
+                  <Route path="/character/:id" component={Character}/>
 
-                  {/*Temporay Route*/}
-                  <Route path="/starship" component={Starship}/>
+                  <Route path="/starship/:id" component={Starship}/>
                 </div>
               </Container>
             </ThemeProvider>

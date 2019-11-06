@@ -1,8 +1,8 @@
 import React from 'react';
 import { isAuthenticated } from '../../../guards/auth.js';
-import { withRouter } from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import CharacterItem from "../characterItem/index.js";
-import {Row} from "reactstrap";
+import {Col, Row} from "reactstrap";
 import Button from "../../../components/elements/button/button";
 import styles from "./styles.module.css";
 
@@ -50,50 +50,41 @@ const state = [
     title: "Yoda 7",
     img: "https://via.placeholder.com/100"
   },
-
   {
     id: 9,
     title: "Yoda 8",
     img: "https://via.placeholder.com/100"
   },
-  {
-    id: 10,
-    title: "Yoda 9",
-    img: "https://via.placeholder.com/100"
-  },
-  {
-    id: 11,
-    title: "Yoda 10",
-    img: "https://via.placeholder.com/100"
-  },
-  {
-    id: 12,
-    title: "Yoda 11",
-    img: "https://via.placeholder.com/100"
-  },
 ];
 
-const Episodes = withRouter(({ history }) =>
+const Characters = withRouter(({ history }) =>
             isAuthenticated ? (
                     <React.Fragment>
                       <Row>
                         {/*TODO Fetch Data from DB*/}
                         { state.map((element) => {
                           return (
-                                  <CharacterItem key={element.id}
-                                         title={element.title}
-                                         img={element.img}/>
+                                  <Col md="4">
+                                    <Link key={element.id}
+                                          to={`/character/${element.id}`}
+                                          className={ styles.cardPanel }>
+                                        <CharacterItem key={element.id}
+                                               title={element.title}
+                                               img={element.img}/>
+                                    </Link>
+                                  </Col>
                           )
                         })
+
                         }
-                      </Row>
-                      <Row>
-                        <div className={`${styles.buttonPanel}`}>
-                          <Button variant="primary" className={`${styles.btnLogin}`}>Load More</Button>
-                        </div>
+                        <Col md="12">
+                          <div className={`${styles.buttonPanel}`}>
+                            <Button variant="primary" className={`${styles.btnLogin}`}>Load More</Button>
+                          </div>
+                        </Col>
                       </Row>
                     </React.Fragment>
 
             ) : ( <CharacterItem/> ),
         );
-export default Episodes;
+export default Characters;

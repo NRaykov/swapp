@@ -1,9 +1,11 @@
 import React from 'react';
 import { isAuthenticated } from '../../../guards/auth.js';
-import { withRouter } from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
-import { Row } from 'reactstrap';
+
+import {Row, NavItem, Col} from 'reactstrap';
 import EpisodeItem from "../episodeItem";
+import styles from "./styles.module.css";
 
 
 //Placeholder
@@ -54,16 +56,21 @@ const Episodes = withRouter(({ history }) =>
                         {/*TODO Fetch Data from DB*/}
                         { state.map((element) => {
                             return (
-                                  <EpisodeItem key={element.id}
+                            <Col md="4">
+                              <Link key={element.id} to={`/episodes/${element.id}`} className={ styles.cardPanel }>
+                                    <EpisodeItem
+                                         key={element.id}
                                          title={element.title}
                                          text={element.text}
                                          img={element.img}/>
+                              </Link>
+                             </Col>
                             )
                           })
                         }
                       </Row>
                     </React.Fragment>
 
-            ) : ( <EpisodeItem/> ),
+            ) : ( <EpisodeItem /> ),
         );
 export default Episodes;

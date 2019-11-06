@@ -7,7 +7,7 @@ import Heading from "../../../components/elements/heading/heading";
 
 
 // TODO ***** Merge StarshipItem and CharacterItem into one component
-const StarshipItem = ({img, model}) => {
+const StarshipItem = ({id, img, model}) => {
   return (
           <Card variant="primary" className={styles.cardPanel}>
             <img src={img} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />

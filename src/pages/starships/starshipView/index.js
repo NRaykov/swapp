@@ -41,6 +41,8 @@ const Starship = ({}) => {
                 <Heading variant="primary" className={styles.title}>{starshipDetails[0].class}</Heading>
                 <Subheading variant="primary" className={styles.subtitle}>({starshipDetails[0].description})</Subheading>
               </Col>
+            </Row>
+            <Row>
               <Col className="col-md-12">
                 <Separator variant="primary"/>
               </Col>

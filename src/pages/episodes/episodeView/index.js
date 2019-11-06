@@ -6,6 +6,8 @@ import Subheading from "../../../components/elements/subheading/subheading.js";
 import styles from "./styles.module.css";
 import CharacterItem from "../../characters/characterItem";
 import Card from "../../../components/elements/card/card";
+import {Link} from "react-router-dom";
+import Button from "../../characters/charactersList";
 
 
 const Episode = () => {
@@ -66,6 +68,11 @@ const Episode = () => {
       title: "Yoda 4",
       img: "https://via.placeholder.com/100"
     },
+    {
+      id: 6,
+      title: "Yoda 5",
+      img: "https://via.placeholder.com/100"
+    },
   ];
 
 
@@ -91,17 +98,27 @@ const Episode = () => {
                   </Row>
               </Card>
               <Row>
-                {
-                  character.map((element) => {
+                  {/*TODO Fetch Data from DB*/}
+                  { character.map((element) => {
                     return (
+                        <Col md="4">
+                          <Link key={element.id}
+                                to={`/character/${element.id}`}
+                                className={ styles.cardPanel }>
                             <CharacterItem key={element.id}
-                                         title={element.title}
-                                         text={element.text}
-                                         img={element.img}/>
+                                           title={element.title}
+                                           img={element.img}/>
+                          </Link>
+                        </Col>
                     )
                   })
-                }
+                  }
               </Row>
+            <Row>
+              <div className={`${styles.buttonPanel}`}>
+                <Button variant="primary" className={`${styles.btnLogin}`}>Load More</Button>
+              </div>
+            </Row>
           </React.Fragment>
   )
 };
