@@ -6,17 +6,12 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import authLink from './server/auth';
 import {typeDefs} from './server/local'
-
-//LocalStorage
-import ls from 'local-storage';
-
 //Navigation and login
 import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
 import { NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, Navbar} from 'reactstrap';
 import {isAuthenticated, signout} from './guards/auth';
 import Login from './components/login/';
 import Container from './components/elements/container/container';
-
 //Styling
 import './App.css';
 import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //Icons
@@ -24,9 +19,6 @@ import { ThemeProvider } from 'styled-components/macro';
 import { themes } from './components';
 //Styled Components
 import Button from "./components/elements/button/button";
-
-
-
 //Pages
 import Episodes from "./pages/episodes/episodesList/";
 import Episode from "./pages/episodes/episodeView/";
@@ -38,27 +30,22 @@ import { gql } from 'graphql.macro';
 
 export const RouteComponent = () => {
 
+    /* TODO Create ThemeChanger Component */
+    const [theme, setTheme] = useState('light');
+
+    const toggleTheme = () => {
+        if (theme === 'light') {
+            setTheme('dark');
+            localStorage.setItem('Theme', theme);
+        } else {
+            setTheme('light');
+            localStorage.setItem('Theme', theme);
+        }
+    };
+    const getTheme = localStorage.getItem('Theme');
+
 
   /**** Test Apollo Client - Fetch demo data ****/
-    // const client = new ApolloClient({
-    //     uri: 'http://softuni-swapp-212366186.eu-west-1.elb.amazonaws.com/graphql',
-    // });
-    //
-    // client.query({
-    //     query: gql`
-    //   {
-    //     rates(currency: "USD") {
-    //       currency
-    //     }
-    //   }
-    // `
-    // }).then(result => console.log(result));
-
-
-
-
-
-
   const cache = new InMemoryCache();
 
     const httpLink = createHttpLink({
@@ -85,18 +72,7 @@ export const RouteComponent = () => {
 
 
 
-
-
-
-
-
-
-    const [theme, setTheme] = useState('light');
-  //TODO Check 'useEffect' hooks
-
-
-
-  const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
   //****  login Button Component
   const LoginButton = withRouter(({ history }) =>
@@ -108,25 +84,12 @@ export const RouteComponent = () => {
   return (
       <ApolloProvider client={client}>
           <Router>
-            <ThemeProvider theme={themes[theme]}>
+            <ThemeProvider theme={themes[getTheme]}>
               <Container variant="primary" className="container-main">
                 <header className="header">
                     <Navbar className="navbar" light expand="md">
                       <NavbarBrand href="#" className="logo"
-                           onClick={
-                             () => {
-
-
-                               setTheme(theme === 'light' ? 'dark' : 'light')
-                                console.log(themes[theme]);
-
-                               //Set current theme to localStorage
-                               ls.set('Theme', themes[theme]);
-
-                             }
-
-
-                           }
+                           onClick={toggleTheme}
                       >swapp</NavbarBrand>
                       <NavbarToggler onClick={toggle}/>
                       <Collapse isOpen={isOpen} navbar>
