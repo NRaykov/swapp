@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { RouteComponent } from './App';
+/* Apollo Boost */
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient, { gql } from 'apollo-boost';
+
 /* Bootstrap 4.3 */
 import 'bootstrap/dist/css/bootstrap.css';
 /* Global Styles */
@@ -8,6 +12,7 @@ import './index.css';
 import './fonts/SfDistantGalaxy-0l3d.ttf';
 
 import * as serviceWorker from './serviceWorker';
+
 
 ReactDOM.render(<RouteComponent  />, document.getElementById('root'));
 

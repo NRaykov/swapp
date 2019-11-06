@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+//Apollo Boost
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from "apollo-boost";
 
 //LocalStorage
 import ls from 'local-storage';
@@ -24,9 +27,29 @@ import Episode from "./pages/episodes/episodeView/";
 import Characters from "./pages/characters/charactersList/";
 import Character from "./pages/characters/characterView/";
 import Starship from "./pages/starships/starshipView";
+import {gql} from "apollo-boost/lib/index";
 
 
 export const RouteComponent = () => {
+
+
+  /**** Test Apollo Client - Fetch demo data ****/
+    const client = new ApolloClient({
+        uri: 'http://softuni-swapp-212366186.eu-west-1.elb.amazonaws.com/graphql',
+    });
+
+    client.query({
+        query: gql`
+      {
+        rates(currency: "USD") {
+          currency
+        }
+      }
+    `
+    }).then(result => console.log(result));
+
+
+
 
   const [theme, setTheme] = useState('light');
   //TODO Check 'useEffect' hooks
@@ -43,6 +66,7 @@ export const RouteComponent = () => {
   );
 
   return (
+      <ApolloProvider client={client}>
           <Router>
             <ThemeProvider theme={themes[theme]}>
               <Container variant="primary" className="container-main">
@@ -121,6 +145,7 @@ export const RouteComponent = () => {
               </Container>
             </ThemeProvider>
           </Router>
+      </ApolloProvider>
   )
 };
 
