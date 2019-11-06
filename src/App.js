@@ -33,16 +33,16 @@ export const RouteComponent = () => {
     /* TODO Create ThemeChanger Component */
     const [theme, setTheme] = useState('light');
 
-    const toggleTheme = () => {
-        if (theme === 'light') {
-            setTheme('dark');
-            localStorage.setItem('Theme', theme);
-        } else {
-            setTheme('light');
-            localStorage.setItem('Theme', theme);
-        }
-    };
-    const getTheme = localStorage.getItem('Theme');
+    // const toggleTheme = () => {
+    //     if (theme === 'light') {
+    //         setTheme('dark');
+    //         localStorage.setItem('Theme', theme);
+    //     } else {
+    //         setTheme('light');
+    //         localStorage.setItem('Theme', theme);
+    //     }
+    // };
+    // const getTheme = localStorage.getItem('Theme');
 
 
   /**** Test Apollo Client - Fetch demo data ****/
@@ -84,12 +84,12 @@ export const RouteComponent = () => {
   return (
       <ApolloProvider client={client}>
           <Router>
-            <ThemeProvider theme={themes[getTheme]}>
+            <ThemeProvider theme={themes[theme]}>
               <Container variant="primary" className="container-main">
                 <header className="header">
                     <Navbar className="navbar" light expand="md">
                       <NavbarBrand href="#" className="logo"
-                           onClick={toggleTheme}
+
                       >swapp</NavbarBrand>
                       <NavbarToggler onClick={toggle}/>
                       <Collapse isOpen={isOpen} navbar>

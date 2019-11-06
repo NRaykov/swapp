@@ -26,7 +26,7 @@ const Login = () => {
                   <div className={`${styles.formPanel}`}>
 
                       <h1 className={`${styles.primaryHeading}`}
-                          onClick={toggleTheme}
+
                       >SWAPP</h1>
 
                       <From variant="primary" className={`${styles.formGroupPanel}`}>
