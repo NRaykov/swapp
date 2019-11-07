@@ -4,8 +4,8 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from "apollo-boost";
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
-import authLink from './server/auth';
-import {typeDefs} from './server/local'
+import authLink from './client/auth';
+import {typeDefs} from './client/local'
 //Navigation and login
 import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
 import { NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, Navbar} from 'reactstrap';
@@ -27,6 +27,7 @@ import Characters from "./pages/characters/charactersList/";
 import Character from "./pages/characters/characterView/";
 import Starship from "./pages/starships/starshipView";
 import { gql } from 'graphql.macro';
+import MainRouter from "./pages/router/router";
 
 
 export const RouteComponent = () => {
@@ -38,25 +39,25 @@ export const RouteComponent = () => {
 
     /**** Test Apollo Client - Fetch demo data ****/
     const cache = new InMemoryCache();
+
     const httpLink = createHttpLink({
-        uri: 'http://softuni-swapp-212366186.eu-west-1.elb.amazonaws.com/graphql',
+      uri: 'https://swapp.st6.io/graphql',
     });
 
     const client = new ApolloClient({
-        cache,
-        link: authLink.concat(httpLink),
-        typeDefs
+      cache,
+      link: authLink.concat(httpLink),
+      typeDefs
     });
-    console.log(client);
 
     const isAuthed = !!localStorage.getItem('token');
-    console.log(isAuthed);
 
-    cache.writeData({
-        data: {
-            authenticated: isAuthed,
-        },
-    });
+
+  cache.writeData({
+    data: {
+      authenticated: isAuthed,
+    },
+  });
 
 
 
@@ -92,24 +93,7 @@ export const RouteComponent = () => {
                 </header>
 
                 <div className="container py-5">
-                  <Route path="/login" component={() => <Login themeChanger={themeChanger}/> }/>
-
-                  <Route exact path="/"
-                          render={props => isAuthenticated ? ( <Episodes/> ) :
-                                      ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
-                          }
-                  />
-                  <Route  path="/characters"
-                          render={props => isAuthenticated ? ( <Characters/> ) :
-                                  ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
-                          }
-                  />
-                  <Route  path="/episodes/:id"
-                          component={Episode}
-                  />
-                  <Route path="/character/:id" component={Character}/>
-
-                  <Route path="/starship/:id" component={Starship}/>
+                 <MainRouter themeChanger={themeChanger}/>
                 </div>
               </Container>
             </ThemeProvider>
