@@ -25,7 +25,7 @@ const MainRouter = ({themeChanger}) => {
                               ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
                       }
               />
-              <Route path="/episodes/:id"omponent={Episode}/>
+              <Route path="/episodes/:id" component={Episode}/>
               <Route path="/character/:id" component={Character}/>
               <Route path="/starship/:id" component={Starship}/>
             </Route>
