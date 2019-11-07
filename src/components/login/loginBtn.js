@@ -3,7 +3,6 @@ import React from "react";
 import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //Icons
 import {withRouter} from 'react-router-dom';
 
-//Styled Components
 import Button from "../elements/button/button";
 const LoginButton = withRouter(({ history }) =>
         isAuthenticated ? (

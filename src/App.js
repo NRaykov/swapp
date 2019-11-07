@@ -8,12 +8,9 @@ import authLink from './client/auth';
 import {typeDefs} from './client/local'
 //Navigation and login
 import {BrowserRouter as Router, Link,} from 'react-router-dom';
-import { NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, Navbar} from 'reactstrap';
-import LoginButton from './components/login/loginBtn';
 import Container from './components/elements/container/container';
 //Styling
 import './App.css';
-
 import { ThemeProvider } from 'styled-components/macro';
 import { themes } from './components';
 import ThemeChanger from './components/themeChanger';
@@ -22,19 +19,29 @@ import MainRouter from "./pages/router/router";
 import {Header} from "./components/header/header";
 
 
+
+
+
+export const AUTHENTICATED_QUERY = gql`
+  query IsAuthenticated {
+    authenticated @client
+  }
+`;
+
 export const RouteComponent = () => {
     /**** Set Theme to LocalStorage ****/
     const [theme, setTheme] = useState('light');
     const themeChanger = ThemeChanger(theme, setTheme);
     const getTheme = localStorage.getItem('Theme');
-
-
     /**** Test Apollo Client - Fetch demo data ****/
     const cache = new InMemoryCache();
 
     const httpLink = createHttpLink({
       uri: 'https://swapp.st6.io/graphql',
     });
+
+    //**** Fetch data from GraphQL
+    console.log(httpLink);
 
     const client = new ApolloClient({
       cache,
@@ -43,12 +50,12 @@ export const RouteComponent = () => {
     });
 
     const isAuthed = !!localStorage.getItem('token');
+    cache.writeData({
+      data: {
+        authenticated: isAuthed,
+      },
+    });
 
-  cache.writeData({
-    data: {
-      authenticated: isAuthed,
-    },
-  });
   return (
       <ApolloProvider client={client}>
           <Router>
@@ -56,7 +63,7 @@ export const RouteComponent = () => {
               <Container variant="primary" className="container-main">
                   <Header themeChanger={themeChanger}/>
                 <div className="container py-5">
-                 <MainRouter themeChanger={themeChanger}/>
+                  <MainRouter themeChanger={themeChanger}/>
                 </div>
               </Container>
             </ThemeProvider>

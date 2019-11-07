@@ -30,8 +30,7 @@ const Login = ({themeChanger}) => {
                       >SWAPP</h1>
 
                       <From variant="primary" className={`${styles.formGroupPanel}`}>
-                          <span>You need to login</span>
-                          <div className={`${styles.error}`}>Invalid credentials!</div>
+                          {/*<div className={`${styles.error}`}>Invalid credentials!</div>*/}
                           <FormGroup>
                               <Input variant="primary" className={`${styles.input}`} type="email" name="email" id="emailAddress" placeholder="email"/>
                           </FormGroup>

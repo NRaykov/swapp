@@ -54,6 +54,7 @@ const Episodes = withRouter(({ history }) =>
                     <React.Fragment>
                       <Row>
                         {/*TODO Fetch Data from DB*/}
+
                         { state.map((element) => {
                             return (
                             <Col md="4">
