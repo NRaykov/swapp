@@ -19,6 +19,7 @@ const characterDetails = [
   {
     id: "1",
     name: "Obi-Wan Kenobi",
+    img: "https://via.placeholder.com/460",
     height: 182,
     weight: 77,
     species: "Human",
@@ -70,7 +71,7 @@ const starships = [
             <Col md="6">
               <Card variant="primary" className={styles.cardPanel}>
                 <Heading variant="primary" className={styles.cardTitle}>Character</Heading>
-                <CardImg src="https://via.placeholder.com/560" className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
+                <CardImg src={characterDetails[0].img} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
                 <div className={`${styles.infoPanel}`}>
                   <ul className={`${styles.infoList}`}>
                     <li className={`${styles.infoListItem}`}>

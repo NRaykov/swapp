@@ -19,7 +19,7 @@ const Starship = ({}) => {
       id: "1",
       class: "Starfighter",
       description: "Delta-7 Aethersprite-class interceptor",
-      img: "https://via.placeholder.com/500",
+      img: "https://via.placeholder.com/460",
       cost: "1800000 credits",
       crew: 1,
       speed: 1150,
