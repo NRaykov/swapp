@@ -11,16 +11,15 @@ import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-
 import { NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, Navbar} from 'reactstrap';
 import {isAuthenticated, signout} from './guards/auth';
 import Login from './components/login/';
+import LoginButton from './components/login/loginBtn';
 import Container from './components/elements/container/container';
 //Styling
 import './App.css';
-import {FaSignOutAlt, FaSignInAlt} from 'react-icons/fa'; //Icons
+
 import { ThemeProvider } from 'styled-components/macro';
 import { themes } from './components';
 import ThemeChanger from './components/themeChanger';
 
-//Styled Components
-import Button from "./components/elements/button/button";
 //Pages
 import Episodes from "./pages/episodes/episodesList/";
 import Episode from "./pages/episodes/episodeView/";
@@ -64,11 +63,6 @@ export const RouteComponent = () => {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
   //****  login Button Component
-  const LoginButton = withRouter(({ history }) =>
-          isAuthenticated ? (
-               <Button  variant="primary" onClick={() => signout(() => history.push('/'))} className="loginButton"><FaSignOutAlt/></Button>
-          ) : ( <Button variant="primary"  to="/login" className="loginButton"><FaSignInAlt/></Button> ),
-  );
 
   return (
       <ApolloProvider client={client}>
