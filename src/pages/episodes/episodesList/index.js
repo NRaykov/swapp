@@ -3,7 +3,7 @@ import { isAuthenticated } from '../../../guards/auth.js';
 import {Link, withRouter} from 'react-router-dom';
 
 
-import {Row, NavItem, Col} from 'reactstrap';
+import {Row, Col} from 'reactstrap';
 import EpisodeItem from "../episodeItem";
 import styles from "./styles.module.css";
 
@@ -57,8 +57,9 @@ const Episodes = withRouter(({ history }) =>
 
                         { state.map((element) => {
                             return (
-                            <Col md="4">
-                              <Link key={element.id} to={`/episodes/${element.id}`} className={ styles.cardPanel }>
+                            <Col md="4" key={element.id}>
+                              <Link to={`/episodes/${element.id}`}
+                                    className={ styles.cardPanel }>
                                     <EpisodeItem
                                          key={element.id}
                                          title={element.title}

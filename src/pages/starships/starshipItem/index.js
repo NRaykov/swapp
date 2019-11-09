@@ -10,7 +10,7 @@ import Heading from "../../../components/elements/heading/heading";
 const StarshipItem = ({id, img, model}) => {
   return (
           <Card variant="primary" className={styles.cardPanel}>
-            <img src={img} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
+            <img src={img} className={`${styles.thumbnail} img-fluid`} alt="" />
             <div className={`${styles.cardBody}`}>
               <Heading variant="primary" className={styles.primaryHeading}>{model}</Heading>
             </div>

@@ -1,5 +1,4 @@
-
-function ThemeChanger(theme, setTheme) {
+const ThemeChanger = (theme, setTheme) => {
   localStorage.setItem('Theme', theme);
   const toggleTheme = () => {
     if (theme === 'light') {

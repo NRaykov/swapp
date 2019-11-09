@@ -64,9 +64,8 @@ const Characters = withRouter(({ history }) =>
                         {/*TODO Fetch Data from DB*/}
                         { state.map((element) => {
                           return (
-                                  <Col md="4">
-                                    <Link key={element.id}
-                                          to={`/character/${element.id}`}
+                                  <Col md="4" key={element.id}>
+                                    <Link to={`/character/${element.id}`}
                                           className={ styles.cardPanel }>
                                         <CharacterItem key={element.id}
                                                title={element.title}
