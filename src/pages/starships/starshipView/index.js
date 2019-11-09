@@ -11,7 +11,7 @@ import InfoText from "../../../components/elements/infotext/infotext";
 import Row from "reactstrap/es/Row";
 
 
-const Starship = ({}) => {
+const Starship = ({...props}) => {
 
   //Placeholder
   const starshipDetails = [
@@ -27,13 +27,7 @@ const Starship = ({}) => {
     }
   ];
 
-//TODO Chart Data
-
-
-
-
-
-
+  // TODO Chart Data
   return (
           <>
             <Row>

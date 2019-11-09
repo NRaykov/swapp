@@ -4,8 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { authenticate } from '../../guards/auth.js';
 // Styles and Forms
 import styles from './styles.module.css';
-//import {themes} from "../index";
-import {ThemeProvider} from 'styled-components/macro';
+//import { ThemeProvider } from 'styled-components/macro';
 import {  FormGroup, } from 'reactstrap';
 import Input from '../elements/inputs/inputs';
 import From from '../elements/form/form';

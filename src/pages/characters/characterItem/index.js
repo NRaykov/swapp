@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardImg, Col } from "reactstrap";
+import {CardImg } from "reactstrap";
 import styles from "./styles.module.css";
 
 import Card from "../../../components/elements/card/card";

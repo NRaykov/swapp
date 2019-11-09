@@ -10,10 +10,9 @@ import Separator from "../../../components/elements/separator/separator";
 import InfoText from "../../../components/elements/infotext/infotext";
 import Row from "reactstrap/es/Row";
 import StarshipItem from "../../starships/starshipItem";
-import {Link} from "react-router-dom";
-import EpisodeItem from "../../episodes/episodesList";
+import { Link } from "react-router-dom";
 
-const Character = ({}) => {
+const Character = ({...props}) => {
 
 const characterDetails = [
   {
