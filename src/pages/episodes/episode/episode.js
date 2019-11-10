@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { useParams} from 'react-router-dom';
 import { Box, Button } from 'rebass';
 import { useQuery} from '@apollo/react-hooks';
+
 import EpisodeView from '../episodeView';
 import Loading from '../../../components/loginForm/loading';
 //import RedirectToLogin from '../components/RedirectToLogin';
@@ -52,6 +53,10 @@ const Episode = () => {
 
     const {...episode} = data.episode;
     let {hasNextPage, endCursor} = episode.people.pageInfo;
+    console.log(data.episode);
+
+
+    console.log('Episode')
     
 
     const loadMorePeople = () => {
@@ -77,15 +82,7 @@ const Episode = () => {
     };
     
     return(
-      
-        <Box width={[400, 600, 900]} mx="auto">
             <EpisodeView  {...episode} my={2} />
-            {hasNextPage && (
-        <Box m={3} textAlign="center">
-          <Button onClick={loadMorePeople}>Load More</Button>
-        </Box>
-      )}
-        </Box>
     )
 
 };

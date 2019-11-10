@@ -9,55 +9,18 @@ import Separator from "../../../components/elements/separator/separator";
 
 import InfoText from "../../../components/elements/infotext/infotext";
 import Row from "reactstrap/es/Row";
-import StarshipItem from "../../starships/starshipItem";
+
 import { Link } from "react-router-dom";
 
-const Character = ({...props}) => {
+const CharacterView = ({...props}) => {
 
-const characterDetails = [
-  {
-    id: "1",
-    name: "Obi-Wan Kenobi",
-    height: 182,
-    weight: 77,
-    species: "Human",
-    planet: "Sewjon"
-  }
-];
-
-const starships = [
-      {
-        id: "0",
-        img: "https://via.placeholder.com/100",
-        model: "Jedi Starfighter"
-      },
-      {
-        id: "1",
-        img: "https://via.placeholder.com/100",
-        model: "Naboo Star Skiff"
-      },
-      {
-        id: "2",
-        img: "https://via.placeholder.com/100",
-        model: "Trade federation cruiser"
-      },
-      {
-        id: "3",
-        img: "https://via.placeholder.com/100",
-        model: "Jedi Interceptor"
-      },
-      {
-        id: "4",
-        img: "https://via.placeholder.com/100",
-        model: "Belbullab-22 starfigter"
-      },
-];
+  const person = { ...props };
 
   return (
           <>
           <Row>
             <Col className="col-md-12">
-              <Heading variant="primary" className={styles.title}>{characterDetails[0].name}</Heading>
+              <Heading variant="primary" className={styles.title}>{person.name}</Heading>
             </Col>
           </Row>
           <Row>
@@ -69,20 +32,20 @@ const starships = [
             <Col md="6">
               <Card variant="primary" className={styles.cardPanel}>
                 <Heading variant="primary" className={styles.cardTitle}>Character</Heading>
-                <CardImg src="https://via.placeholder.com/560" className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
+                <CardImg src={person.image} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
                 <div className={`${styles.infoPanel}`}>
                   <ul className={`${styles.infoList}`}>
                     <li className={`${styles.infoListItem}`}>
-                      Height: <InfoText variant="primary">{characterDetails[0].height}</InfoText>
+                      Height: <InfoText variant="primary">{person.height}</InfoText>
                     </li>
                     <li className={`${styles.infoListItem}`}>
-                      Weight: <InfoText variant="primary">{characterDetails[0].weight}</InfoText>
+                      Weight: <InfoText variant="primary">{person.weight}</InfoText>
                     </li>
                     <li className={`${styles.infoListItem}`} >
-                      Species: <InfoText variant="primary">{characterDetails[0].species}</InfoText>
+                      Species: <InfoText variant="primary">{person.species.name}</InfoText>
                     </li>
                     <li className={`${styles.infoListItem}`}>
-                      Home World: <InfoText variant="primary">{characterDetails[0].planet}</InfoText>
+                      Home World: <InfoText variant="primary">{person.homeworld.name}</InfoText>
                     </li>
                   </ul>
                 </div>
@@ -91,22 +54,28 @@ const starships = [
             <Col md="6">
                 <Subheading variant="primary" className={styles.title}>Piloted Starships</Subheading>
                 <Separator variant="primary"/>
-                  {/*TODO Fetch Data from DB*/}
-                  { starships.map((element) => {
-                    return (
-                            <div>
-                              <Link key={element.id} to={`/starship/${element.id}`} className={ styles.starshipPanel }>
-                                <StarshipItem key={element.id}
-                                              model={element.model}
-                                              img={element.img}/>
-                              </Link>
-                            </div>
-                    )
-                  })
-                  }
+              <div key={person.id}>
+                {
+                  person.starships.edges.map(starship => { return (
+                        <div key={starship.node.id} className="starship">
+                          <Link className={ styles.starshipPanel }
+                                variant="nav"
+                                key={starship.node.id}
+                                to={`/starships/${starship.node.id}`}>
+                            <Card variant="primary" className={styles.cardPanel}>
+                              <img src={starship.node.image} className={`${styles.thumbnail} img-fluid`} alt="" />
+                              <div className={`${styles.cardBody}`}>
+                                <Heading variant="primary" className={styles.primaryHeading}>{starship.node.name}</Heading>
+                              </div>
+                            </Card>
+                          </Link>
+                        </div>
+                    )}
+                  )}
+              </div>
             </Col>
           </Row>
           </>
   )
 };
-export default Character;
+export default CharacterView;

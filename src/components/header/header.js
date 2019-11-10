@@ -18,7 +18,7 @@ const Header = ({themeChanger}) => {
                 <Collapse isOpen={isOpen} navbar>
                   <Nav className="ml-auto" navbar>
                     <NavItem>
-                      <Link className="nav-link" to="/">Episodes</Link>
+                      <Link className="nav-link" to="/episodes">Episodes</Link>
                     </NavItem>
                     <NavItem>
                       <Link className="nav-link" to="/characters">Characters</Link>

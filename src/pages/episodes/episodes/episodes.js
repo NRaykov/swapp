@@ -1,13 +1,12 @@
 import React from 'react';
 //import { isAuthenticated } from '../../../guards/auth.js';
-import {Link} from 'react-router-dom';
-
 import  Heading from "../../../components/elements/heading/heading";
 import Card from "../../../components/elements/card/card"
 import {CardImg, CardText, Row, Col} from 'reactstrap';
 import styles from "./styles.module.css";
 import { Query } from "react-apollo";
 import { Link as RouterLink } from 'react-router-dom';
+import {Link} from 'rebass';
 import gql from "graphql-tag";
 import Loading from '../../../components/loginForm/loading';
 
@@ -19,7 +18,7 @@ const Episodes = () => (
           totalCount
           edges{
             node{
-              id
+              episodeId
               title
               image
               openingCrawl
@@ -36,7 +35,7 @@ const Episodes = () => (
             console.log(data);
 
             return data.allEpisodes.edges.map(({ node }) => (
-                    <Col md={4} key={node.id}>
+                    <Col md={4} key={node.episodeId}>
                       <Link className={ styles.cardPanel }
                             as={RouterLink}
                             variant="nav"

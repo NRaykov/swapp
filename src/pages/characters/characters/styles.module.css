@@ -1,3 +1,32 @@
+.cardPanel {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 1rem 0;
+    max-height: 18rem;
+    border-radius: 1rem;
+}
+.cardPanel:hover {
+    text-decoration: none;
+}
+.buttonPanel {
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.buttonPanel .btnLogin {
+    font-family: 'RobotoBlack';
+    padding: 0.7rem 2.7rem;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    border: none;
+    border-radius: 0.7rem;
+}
+
+
+
+
 .headingPanel {
     width: 100%;
     height: 100%;
@@ -43,12 +72,7 @@
     border-radius: 0.7rem;
 }
 
-
-
-
-
-
-.characterPanel {
+.cardPanel {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -64,19 +88,15 @@
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
 }
-
-.characterPanel .characterThumb {
+.container-main .thumbnail {
     width: 10rem;
     height: 10rem;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
-
 .primaryHeading {
-    margin: 2rem 0.5rem;
-    font-size: 1.8rem;
+    margin: 2rem 0;
+    font-size: 2rem;
     font-family: 'StarWars';
 }
-.charactersWrapper a {
-    padding: 0;
-}
+

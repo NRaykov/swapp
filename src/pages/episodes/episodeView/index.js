@@ -3,60 +3,28 @@ import React from 'react';
 import {CardImg, Col, Row} from 'reactstrap';
 import Heading from "../../../components/elements/heading/heading.js";
 import Subheading from "../../../components/elements/subheading/subheading.js";
-import styles from "./styles.module.css";
-import CharacterItem from "../../characters/characterItem";
-import Card from "../../../components/elements/card/card";
-import {Link} from "react-router-dom";
-import Button from "../../characters/charactersList";
 
+import styles from "./styles.module.css";
+import Card from "../../../components/elements/card/card";
+import { Link as RouterLink } from 'react-router-dom';
+
+import { Link } from 'rebass';
 
 const EpisodeView = ({...props}) => {
 
   const episode = {...props};
 
+  console.log('EpisodeView');
 
-  const character = [
-    {
-      id: 1,
-      title: "Yoda",
-      img: "https://via.placeholder.com/100"
-    },
-    {
-      id: 2,
-      title: "Yoda 1",
-      img: "https://via.placeholder.com/100"
-    },
-
-    {
-      id: 3,
-      title: "Yoda 2",
-      img: "https://via.placeholder.com/100"
-    },
-    {
-      id: 4,
-      title: "Yoda 3",
-      img: "https://via.placeholder.com/100"
-    },
-    {
-      id: 5,
-      title: "Yoda 4",
-      img: "https://via.placeholder.com/100"
-    },
-    {
-      id: 6,
-      title: "Yoda 5",
-      img: "https://via.placeholder.com/100"
-    },
-  ];
-
-
+  const characters = episode.people.edges;
+  console.log(episode);
 
   return (
           <React.Fragment>
             <Card variant="primary" className={styles.cardPanel}>
                 <Row>
                   <Col md="3">
-                    <CardImg top width="100%" src={episode.img} className="img-fluid" alt="Episode" />
+                    <CardImg top width="100%" src={episode.image} className="img-fluid" alt="" />
                   </Col>
                   <Col md="9">
                     <div className={`${styles.headingPanel}`}>
@@ -68,30 +36,32 @@ const EpisodeView = ({...props}) => {
               </Card>
               <Card variant="primary" className={styles.textPanel}>
                   <Row>
-                      <Col md="12">{episode.text}</Col>
+                      <Col md="12">{episode.openingCrawl}</Col>
                   </Row>
               </Card>
-              <Row>
-                  { character.map((element) => {
+
+
+              <Row key={characters.id} className={styles.charactersWrapper}>
+                  { characters.map((character) => {
                     return (
-                        <Col md="4">
-                          <Link key={element.id}
-                                to={`/character/${element.id}`}
-                                className={ styles.cardPanel }>
-                            <CharacterItem key={element.id}
-                                           title={element.title}
-                                           img={element.img}/>
+                        <Col md="4"  key={character.node.id}>
+                          <Link to={`/characters/${character.node.id}`}
+                                key={character.node.id}
+                                className={ styles.cardPanel }
+                                as={RouterLink}>
+                              <Card variant="primary" className={styles.characterPanel}>
+                                <CardImg src={character.node.image} className={`${styles.characterThumb} img-fluid`} alt="Card image cap" />
+                                <div className={`${styles.cardBody}`}>
+                                  <Heading variant="primary" className={styles.primaryHeading}>{character.node.name}</Heading>
+                                </div>
+                              </Card>
+
                           </Link>
                         </Col>
                     )
                   })
                   }
               </Row>
-            <Row>
-              <div className={`${styles.buttonPanel}`}>
-                <Button variant="primary" className={`${styles.btnLogin}`}>Load More</Button>
-              </div>
-            </Row>
           </React.Fragment>
   )
 };
