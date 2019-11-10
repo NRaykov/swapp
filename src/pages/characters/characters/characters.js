@@ -12,7 +12,6 @@ import Card from "../../episodes/episodeView";
 import Heading from "../../../components/elements/heading/heading"
 
 
-//Placeholder
 const charactersQuery = gql`
   query CharactersQuery($first: Int!, $after: String) {
     allPeople(first: $first, after: $after){
@@ -46,7 +45,7 @@ const Characters = () => {
   const [...allPeople] = data.allPeople.edges;
   let { hasNextPage, endCursor } = data.allPeople.pageInfo;
 
-  const loadMoreResults = () => {
+  const loadMore = () => {
     fetchMore({
       variables: {
         after: endCursor,
@@ -91,7 +90,7 @@ const Characters = () => {
 
               <Col md="12">
                 <div className={`${styles.buttonPanel}`}>
-                  <Button variant="primary" className={`${styles.btnLogin}`} onClick={loadMoreResults}>Load More</Button>
+                  <Button variant="primary" className={`${styles.btnLogin}`} onClick={loadMore}>Load More</Button>
                 </div>
               </Col>
               )}

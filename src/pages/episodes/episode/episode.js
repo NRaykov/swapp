@@ -1,12 +1,13 @@
 import React from 'react';
 import gql from "graphql-tag";
 import { useParams} from 'react-router-dom';
-import { Box, Button } from 'rebass';
 import { useQuery} from '@apollo/react-hooks';
 
 import EpisodeView from '../episodeView';
 import Loading from '../../../components/loginForm/loading';
 //import RedirectToLogin from '../components/RedirectToLogin';
+import Button from '../../../components/elements/button/button'
+import styles from './styles.module.css';
 
 const episodeQuery = gql`
   query EpisodeQuery($episodeId: ID!, $first: Int, $after: String) {
@@ -36,12 +37,12 @@ const episodeQuery = gql`
     }
 `;
 
-
 const Episode = () => {
     let { episodeId } = useParams() ;
      episodeId = 'films.'+episodeId;
-     //number of characters to display on page load
-     let first = 5;
+
+     //Display first 6 items
+     let first = 6;
     
     const {data, loading, error, fetchMore} = useQuery(episodeQuery, {
         variables: {episodeId, first}
@@ -50,16 +51,16 @@ const Episode = () => {
     if (loading) return <Loading/>;
     if (error)return 'Error';
 
-
     const {...episode} = data.episode;
     let {hasNextPage, endCursor} = episode.people.pageInfo;
+
     console.log(data.episode);
 
 
-    console.log('Episode')
+    console.log('Episode');
     
 
-    const loadMorePeople = () => {
+    const loadMore = () => {
       fetchMore({
         variables: {
           after: endCursor,
@@ -82,7 +83,14 @@ const Episode = () => {
     };
     
     return(
-            <EpisodeView  {...episode} my={2} />
+            <>
+              <EpisodeView  {...episode} />
+              {hasNextPage && (
+                    <div className={styles.buttonPanel}>
+                      <Button variant="primary" onClick={ loadMore } className={styles.btnLogin}>Load More</Button>
+                    </div>
+              )}
+            </>
     )
 
 };
