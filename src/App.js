@@ -11,7 +11,7 @@ import authLink from './client/auth';
 import {typeDefs} from './client/local'
 
 //Navigation and login
-import {BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Container from './components/elements/container/container';
 //Styling
 import './App.css';
@@ -19,13 +19,17 @@ import { ThemeProvider } from 'styled-components/macro';
 import { themes } from './components';
 import ThemeChanger from './components/themeChanger';
 
-import MainRouter from "./pages/router/router";
-import {Header} from "./components/header/header";
+import Pages from "./pages/";
+import Header from "./components/header/header";
 
 
 
 
 import ApolloClient, { gql } from "apollo-boost"
+
+
+
+
 
 const cache = new InMemoryCache();
 
@@ -39,27 +43,15 @@ const client = new ApolloClient({
   typeDefs
 });
 
-console.log(client);
-
-const isAuthed = !!localStorage.getItem('token');
+//const isAuthed = !!localStorage.getItem('token');
+const isAuthed = true;
 
 
 cache.writeData({
   data: {
-    authenticated: true,
+    authenticated: isAuthed,
   },
 });
-
-console.log(cache);
-
-
-
-
-
-
-
-
-
 
 
 export const AppComponent = () => {
@@ -72,16 +64,18 @@ export const AppComponent = () => {
 
   return (
    <ApolloProvider client={client}>
-          <Router>
+          <BrowserRouter>
             <ThemeProvider theme={themes[getTheme]}>
               <Container variant="primary" className="container-main">
+
                   <Header themeChanger={themeChanger}/>
-                <div className="container py-5">
-                  <MainRouter themeChanger={themeChanger}/>
-                </div>
+                  <div className="container py-5">
+                    <Pages themeChanger={themeChanger}/>
+                  </div>
+
               </Container>
             </ThemeProvider>
-          </Router>
+          </BrowserRouter>
       </ApolloProvider>
   )
 };

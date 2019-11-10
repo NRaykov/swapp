@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import LoginButton from "../../components/login/loginBtn";
 import React, {useState} from "react";
 
-export const Header = ({themeChanger}) => {
+const Header = ({themeChanger}) => {
 
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
@@ -33,5 +33,6 @@ export const Header = ({themeChanger}) => {
           </header>
             </>
   )
-
 };
+
+export default Header;

@@ -10,36 +10,10 @@ import {Link} from "react-router-dom";
 import Button from "../../characters/charactersList";
 
 
-const Episode = () => {
+const EpisodeView = ({...props}) => {
 
-  //Placeholder
-  const state = [
-    {
-      id: 1,
-      title: "The Phantom Menance",
-      text: "Two Jedi escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to claim their old glory.",
-      img: "https://via.placeholder.com/400x400"
-    },
-    {
-      id: 2,
-      title: "Attack of the Clones",
-      text: "Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padmé Amidala, while Obi-Wan Kenobi investigates an assassination attempt on the senator and discovers a secret clone army crafted for the Jedi.",
-      img: "https://via.placeholder.com/400x400"
-    },
+  const episode = {...props};
 
-    {
-      id: 3,
-      title: "Revenge of the Sith",
-      text: "Three years into the Clone Wars, the Jedi rescue Palpatine from Count Dooku. As Obi-Wan pursues a new threat, Anakin acts as a double agent between the Jedi Council and Palpatine and is lured into a sinister plan to rule the galaxy.",
-      img: "https://via.placeholder.com/400x400"
-    },
-    {
-      id: 4,
-      title: "A New Hope",
-      text: "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.",
-      img: "https://via.placeholder.com/400x400"
-    },
-  ];
 
   const character = [
     {
@@ -82,19 +56,19 @@ const Episode = () => {
             <Card variant="primary" className={styles.cardPanel}>
                 <Row>
                   <Col md="3">
-                    <CardImg top width="100%" src={state[0].img} className="img-fluid" alt="Episode" />
+                    <CardImg top width="100%" src={episode.img} className="img-fluid" alt="Episode" />
                   </Col>
                   <Col md="9">
                     <div className={`${styles.headingPanel}`}>
-                      <Heading variant="primary" className={`${styles.title}`}>{state[0].title}</Heading>
-                      <Subheading variant="primary" className={`${styles.subtitle}`}>{state[0].title}</Subheading>
+                      <Heading variant="primary" className={`${styles.title}`}>{episode.title}</Heading>
+                      <Subheading variant="primary" className={`${styles.subtitle}`}>{episode.title}</Subheading>
                     </div>
                   </Col>
                 </Row>
               </Card>
               <Card variant="primary" className={styles.textPanel}>
                   <Row>
-                      <Col md="12">{state[0].text}</Col>
+                      <Col md="12">{episode.text}</Col>
                   </Row>
               </Card>
               <Row>
@@ -122,4 +96,4 @@ const Episode = () => {
           </React.Fragment>
   )
 };
-export default Episode
+export default EpisodeView

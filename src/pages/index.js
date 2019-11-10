@@ -1,15 +1,15 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Episode from '../episodes/episodeView';
-import Episodes from '../episodes/episodesList';
-import Characters from '../characters/charactersList'
-import Character from '../characters/characterView';
-import Starship from '../starships/starshipView/'
-import Login from '../../components/login/'
+import Episode from './episodes/episodeView';
+import Episodes from './episodes/episodes/episodes';
+import Characters from './characters/charactersList'
+import Character from './characters/characterView';
+import Starship from './starships/starshipView'
+import Login from '../components/login'
 //import {isAuthenticated} from "../../guards/auth";
 
 
-const MainRouter = ({themeChanger}) => {
+const Pages = ({themeChanger}) => {
 
   return (
           <Switch>
@@ -25,4 +25,4 @@ const MainRouter = ({themeChanger}) => {
   );
 };
 
-export default MainRouter;
+export default Pages;
