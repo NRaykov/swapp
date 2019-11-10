@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { RouteComponent } from './App';
+import { AppComponent } from './App';
 /* Bootstrap 4.3 */
 import 'bootstrap/dist/css/bootstrap.css';
 /* Global Styles */
@@ -10,7 +10,7 @@ import './fonts/SfDistantGalaxy-0l3d.ttf';
 import * as serviceWorker from './serviceWorker';
 
 
-ReactDOM.render(<RouteComponent  />, document.getElementById('root'));
+ReactDOM.render(<AppComponent  />, document.getElementById('root'));
 
 
 // If you want your app to work offline and load faster, you can change

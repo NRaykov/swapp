@@ -1,5 +1,5 @@
 import React from 'react';
-import { isAuthenticated } from '../../../guards/auth.js';
+//import { isAuthenticated } from '../../../guards/auth.js';
 import {Link, withRouter} from 'react-router-dom';
 
 
@@ -49,30 +49,29 @@ const state = [
     },
 ];
 
-const Episodes = withRouter(({ history }) =>
-            isAuthenticated ? (
-                    <React.Fragment>
-                      <Row>
-                        {/*TODO Fetch Data from DB*/}
+const Episodes = () => (
+                          <React.Fragment>
+                            <Row>
+                              {/*TODO Fetch Data from DB*/}
 
-                        { state.map((element) => {
-                            return (
-                            <Col md="4" key={element.id}>
-                              <Link to={`/episodes/${element.id}`}
-                                    className={ styles.cardPanel }>
-                                    <EpisodeItem
-                                         key={element.id}
-                                         title={element.title}
-                                         text={element.text}
-                                         img={element.img}/>
-                              </Link>
-                             </Col>
-                            )
-                          })
-                        }
-                      </Row>
-                    </React.Fragment>
+                              { state.map((element) => {
+                                  return (
+                                  <Col md="4" key={element.id}>
+                                    <Link to={`/episodes/${element.id}`}
+                                          className={ styles.cardPanel }>
+                                          <EpisodeItem
+                                               key={element.id}
+                                               title={element.title}
+                                               text={element.text}
+                                               img={element.img}/>
+                                    </Link>
+                                   </Col>
+                                  )
+                                })
+                              }
+                            </Row>
+                          </React.Fragment>
+                      );
 
-            ) : ( <EpisodeItem /> ),
-        );
 export default Episodes;
+

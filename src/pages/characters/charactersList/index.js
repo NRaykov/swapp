@@ -57,33 +57,31 @@ const state = [
   },
 ];
 
-const Characters = withRouter(({ history }) =>
-            isAuthenticated ? (
-                    <React.Fragment>
-                      <Row>
-                        {/*TODO Fetch Data from DB*/}
-                        { state.map((element) => {
-                          return (
-                                  <Col md="4" key={element.id}>
-                                    <Link to={`/character/${element.id}`}
-                                          className={ styles.cardPanel }>
-                                        <CharacterItem key={element.id}
-                                               title={element.title}
-                                               img={element.img}/>
-                                    </Link>
-                                  </Col>
-                          )
-                        })
+const Characters = () => (
+                            <React.Fragment>
+                              <Row>
+                                {/*TODO Fetch Data from DB*/}
+                                { state.map((element) => {
+                                  return (
+                                          <Col md="4" key={element.id}>
+                                            <Link to={`/character/${element.id}`}
+                                                  className={ styles.cardPanel }>
+                                                <CharacterItem key={element.id}
+                                                       title={element.title}
+                                                       img={element.img}/>
+                                            </Link>
+                                          </Col>
+                                  )
+                                })
 
-                        }
-                        <Col md="12">
-                          <div className={`${styles.buttonPanel}`}>
-                            <Button variant="primary" className={`${styles.btnLogin}`}>Load More</Button>
-                          </div>
-                        </Col>
-                      </Row>
-                    </React.Fragment>
+                                }
+                                <Col md="12">
+                                  <div className={`${styles.buttonPanel}`}>
+                                    <Button variant="primary" className={`${styles.btnLogin}`}>Load More</Button>
+                                  </div>
+                                </Col>
+                              </Row>
+                            </React.Fragment>
 
-            ) : ( <CharacterItem/> ),
-        );
+                          );
 export default Characters;

@@ -2,6 +2,14 @@ import React, {useState} from 'react';
 //Apollo Boost
 //import { ApolloProvider } from '@apollo/react-hooks';
 
+import { ApolloProvider } from "react-apollo";
+
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { createHttpLink } from 'apollo-link-http';
+
+import authLink from './client/auth';
+import {typeDefs} from './client/local'
+
 //Navigation and login
 import {BrowserRouter as Router } from 'react-router-dom';
 import Container from './components/elements/container/container';
@@ -14,7 +22,47 @@ import ThemeChanger from './components/themeChanger';
 import MainRouter from "./pages/router/router";
 import {Header} from "./components/header/header";
 
-export const RouteComponent = () => {
+
+
+
+import ApolloClient, { gql } from "apollo-boost"
+
+const cache = new InMemoryCache();
+
+const httpLink = createHttpLink({
+  uri: 'https://swapp.st6.io/graphql',
+});
+
+const client = new ApolloClient({
+  cache,
+  link: authLink.concat(httpLink),
+  typeDefs
+});
+
+console.log(client);
+
+const isAuthed = !!localStorage.getItem('token');
+
+
+cache.writeData({
+  data: {
+    authenticated: true,
+  },
+});
+
+console.log(cache);
+
+
+
+
+
+
+
+
+
+
+
+export const AppComponent = () => {
     /**** Set Theme to LocalStorage ****/
     const [theme, setTheme] = useState('light');
     const themeChanger = ThemeChanger(theme, setTheme);
@@ -23,7 +71,7 @@ export const RouteComponent = () => {
 
 
   return (
-     /*<ApolloProvider client={client}>  */
+   <ApolloProvider client={client}>
           <Router>
             <ThemeProvider theme={themes[getTheme]}>
               <Container variant="primary" className="container-main">
@@ -34,7 +82,7 @@ export const RouteComponent = () => {
               </Container>
             </ThemeProvider>
           </Router>
-      /* <ApolloProvider> */
+      </ApolloProvider>
   )
 };
 

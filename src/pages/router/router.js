@@ -6,7 +6,7 @@ import Characters from '../characters/charactersList'
 import Character from '../characters/characterView';
 import Starship from '../starships/starshipView/'
 import Login from '../../components/login/'
-import {isAuthenticated} from "../../guards/auth";
+//import {isAuthenticated} from "../../guards/auth";
 
 
 const MainRouter = ({themeChanger}) => {
@@ -15,16 +15,8 @@ const MainRouter = ({themeChanger}) => {
           <Switch>
             <Route>
               <Route path="/login" component={() => <Login themeChanger={themeChanger}/> }/>
-              <Route exact path="/"
-                     render={props => isAuthenticated ? ( <Episodes/> ) :
-                             ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
-                     }
-              />
-              <Route  path="/characters"
-                      render={props => isAuthenticated ? ( <Characters/> ) :
-                              ( <Redirect to={{ pathname: '/login', state: {from: props.location},}} /> )
-                      }
-              />
+              <Route exact path="/" component={Episodes}/>
+              <Route  path="/characters" component={Characters} />
               <Route path="/episodes/:id" component={Episode}/>
               <Route path="/character/:id" component={Character}/>
               <Route path="/starship/:id" component={Starship}/>
