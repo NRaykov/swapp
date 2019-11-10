@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag.macro';
-import Header from '../components/header/header';
+
 import Pages from './';
 
 export const AUTHENTICATED_QUERY = gql`
@@ -10,12 +10,12 @@ export const AUTHENTICATED_QUERY = gql`
   }
 `;
 
-const Home = ({themeChanger}) => {
+const Home = ({}) => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
 
   return (
     <>
-      {data.authenticated && <Header themeChanger={themeChanger} />}
+      {data.authenticated}
         <div className='container'>
           <Pages />
         </div>

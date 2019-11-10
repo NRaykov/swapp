@@ -4,7 +4,7 @@ import { useParams} from 'react-router-dom';
 import { Box, Button } from 'rebass';
 import { useQuery} from '@apollo/react-hooks';
 import EpisodeView from '../episodeView';
-import Loading from '../../../components/loginForm/Loading';
+import Loading from '../../../components/loginForm/loading';
 //import RedirectToLogin from '../components/RedirectToLogin';
 
 const episodeQuery = gql`

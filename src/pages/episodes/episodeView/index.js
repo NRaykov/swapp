@@ -72,7 +72,6 @@ const EpisodeView = ({...props}) => {
                   </Row>
               </Card>
               <Row>
-                  {/*TODO Fetch Data from DB*/}
                   { character.map((element) => {
                     return (
                         <Col md="4">

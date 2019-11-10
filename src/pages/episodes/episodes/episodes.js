@@ -4,28 +4,22 @@ import {Link} from 'react-router-dom';
 
 import  Heading from "../../../components/elements/heading/heading";
 import Card from "../../../components/elements/card/card"
-
-
-import {Row, Col, CardImg, CardText} from 'reactstrap';
-
+import {CardImg, CardText, Row, Col} from 'reactstrap';
 import styles from "./styles.module.css";
-
-
 import { Query } from "react-apollo";
 import { Link as RouterLink } from 'react-router-dom';
-
 import gql from "graphql-tag";
-import Loading from '../../../components/loginForm/Loading';
+import Loading from '../../../components/loginForm/loading';
 
 const Episodes = () => (
-
+        <Row>
         <Query query={gql`
       {
         allEpisodes (first:8) {
           totalCount
           edges{
             node{
-              episodeId
+              id
               title
               image
               openingCrawl
@@ -39,25 +33,29 @@ const Episodes = () => (
             if (loading) return <Loading/>;
             if (error) return 'Error';
 
+            console.log(data);
+
             return data.allEpisodes.edges.map(({ node }) => (
-                    <div key={node.episodeId} className="content">
+                    <Col md={4} key={node.id}>
                       <Link className={ styles.cardPanel }
                             as={RouterLink}
                             variant="nav"
                             key={node.episodeId}
                             to={`/episodes/${node.episodeId}`}>
                             <Card variant="primary" className={`${styles.cardPanel}`}>
-                              <CardImg top width="100%" src={node.img} className={`${styles.thumbnail} img-fluid`} alt="Episode" />
+                              <CardImg top width="100%" src={node.image} className={`${styles.thumbnail} img-fluid`} alt="Episode" />
                               <div className={`${styles.cardBody}`} >
                                 <Heading variant="primary" className={`${styles.title} title-global`}>{node.title}</Heading>
                                 <CardText className={`${styles.text}`} >{node.openingCrawl.substring(0, 221) + "..."}</CardText>
                               </div>
                             </Card>
                       </Link>
-                    </div>
+                    </Col>
             ));
           }}
-        </Query>);
+        </Query>
+
+        </Row>);
 
 export default Episodes;
 
