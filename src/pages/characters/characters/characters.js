@@ -8,7 +8,7 @@ import gql from "graphql-tag";
 import {CardImg, Col, Row} from "reactstrap";
 import Button from "../../../components/elements/button/button";
 import styles from "./styles.module.css";
-import Card from "../../episodes/episodeView";
+import Card from "../../../components/elements/card/card";
 import Heading from "../../../components/elements/heading/heading"
 
 
@@ -64,28 +64,29 @@ const Characters = () => {
       },
     });
   };
+        const characters = allPeople.map(({ node }) => (
+            <Col md="4" key={node.id}>
+              <Link className={ styles.cardPanel }
+                    variant="nav" key={node.id}
+                    to={`/characters/${node.id}`}>
+                <Card variant="primary" className={styles.cardPanel}>
+                  <CardImg src={node.image} className={`${styles.thumbnail} img-fluid foo`} alt="Card image cap" />
+                  <div className={`${styles.cardBody}`}>
+                    <Heading variant="primary" className={styles.primaryHeading}>{node.name}</Heading>
+                  </div>
+                </Card>
+              </Link>
+            </Col>
+        ));
 
 
-  const characters = allPeople.map(({ node }) => (
-          <Col md="4" key={node.id}>
-            <Link className={ styles.cardPanel }
-                  variant="nav" key={node.id}
-                  to={`/characters/${node.id}`}>
-              <Card variant="primary" className={styles.cardPanel}>
-                <CardImg src={node.image} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
-                <div className={`${styles.cardBody}`}>
-                  <Heading variant="primary" className={styles.primaryHeading}>{node.name}</Heading>
-                </div>
-              </Card>
-            </Link>
-          </Col>
-  ));
+
 
   return (
           <React.Fragment>
-              <div className="page-content">
+              <Row>
                 {characters}
-              </div>
+              </Row>
               {hasNextPage && (
 
               <Col md="12">
@@ -95,6 +96,9 @@ const Characters = () => {
               </Col>
               )}
           </React.Fragment>
+
+
+
   );
 };
 export default Characters;

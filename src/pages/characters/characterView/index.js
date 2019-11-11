@@ -6,11 +6,10 @@ import Card from "../../../components/elements/card/card";
 import Heading from "../../../components/elements/heading/heading";
 import Subheading from "../../../components/elements/subheading/subheading";
 import Separator from "../../../components/elements/separator/separator";
-
-import InfoText from "../../../components/elements/infotext/infotext";
 import Row from "reactstrap/es/Row";
 
 import { Link } from "react-router-dom";
+import InfoText from "../../../components/elements/infotext/infotext"
 
 const CharacterView = ({...props}) => {
 
@@ -39,7 +38,7 @@ const CharacterView = ({...props}) => {
                       Height: <InfoText variant="primary">{person.height}</InfoText>
                     </li>
                     <li className={`${styles.infoListItem}`}>
-                      Weight: <InfoText variant="primary">{person.weight}</InfoText>
+                      Weight: <InfoText variant="primary">{person.mass}</InfoText>
                     </li>
                     <li className={`${styles.infoListItem}`} >
                       Species: <InfoText variant="primary">{person.species.name}</InfoText>

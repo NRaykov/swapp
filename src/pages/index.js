@@ -6,7 +6,7 @@ import Episodes from './episodes/episodes/episodes';
 import Characters from './characters/characters/characters'
 import Character from './characters/characterView';
 
-import Starship from './starships/starshipView'
+import Starship from './starships/starship/starship'
 //import Login from '../components/login'
 import PrivateRoute from "../components/PrivateRoute";
 //import {isAuthenticated} from "../../guards/auth";
@@ -25,7 +25,7 @@ const Pages = ({}) => {
               <Route exact path="/characters"  component={Characters} />
               <Route path="/characters/:characterId" component={Character}/>
 
-              <Route path="/starship/:id" component={Starship}/>
+              <Route path="/starships/:id" component={Starship}/>
             </PrivateRoute>
           </Switch>
   );

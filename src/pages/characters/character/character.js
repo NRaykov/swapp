@@ -10,15 +10,15 @@ const episodeQuery = gql`
     person(id: $characterId){
         name
         height
-        weight
+        mass
         image
-        species{
+        species {
             name
         }
-        homeworld{
+        homeworld {
             name
         }
-        starships{
+        starships {
             edges{
                 node{
                     id

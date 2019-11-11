@@ -15,7 +15,7 @@ import {useQuery} from "@apollo/react-hooks";
 
 const episodesQuery = gql`
       {
-        allEpisodes (first:8) {
+       allEpisodes (first:8) {
           totalCount
           edges{
             node{
