@@ -10,81 +10,56 @@ import Separator from "../../../components/elements/separator/separator";
 import InfoText from "../../../components/elements/infotext/infotext";
 
 
-// const Index = ({...props}) => {
-//
-//   const starship = { ...props };
-//
-//
-//   return (
-//           <>
-//             <Row>
-//               <Col className="col-md-12">
-//                 <Heading variant="primary" className={styles.title}>{starship.name}</Heading>
-//                 <Subheading variant="primary" className={styles.subtitle}>{starship.name}</Subheading>
-//               </Col>
-//             </Row>
-//             <Row>
-//               <Col className="col-md-12">
-//                 <Separator variant="primary"/>
-//               </Col>
-//             </Row>
-//             <Row>
-//               <Col md="6">
-//                 <Card variant="primary" className={styles.cardPanel}>
-//                   <Heading variant="primary" className={styles.cardTitle}>{starship.name}</Heading>
-//                   <CardImg src={starship.image} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
-//                   <div className={`${styles.infoPanel}`}>
-//                     <ul className={`${styles.infoList}`}>
-//                       <li className={`${styles.infoListItem}`}>
-//                         Class: <InfoText variant="primary">{starship.starshipClass}</InfoText>
-//                       </li>
-//                       <li className={`${styles.infoListItem}`}>
-//                         Cost: <InfoText variant="primary">{starship.cost}</InfoText>
-//                       </li>
-//                       <li className={`${styles.infoListItem}`} >
-//                         Crew: <InfoText variant="primary">{starship.crew}</InfoText>
-//                       </li>
-//                       <li className={`${styles.infoListItem}`}>
-//                         Max Atmospheric Speed: <InfoText variant="primary">{starship.maxAtmosphericSpeed}</InfoText>
-//                       </li>
-//                       <li className={`${styles.infoListItem}`}>
-//                         Hyperdrive Rating: <InfoText variant="primary">{starship.hyperdriveRating}</InfoText>
-//                       </li>
-//                     </ul>
-//                   </div>
-//                 </Card>
-//               </Col>
-//               <Col md="6">
-//                   <div className={styles.chartPanel}>
-//
-//                   </div>
-//               </Col>
-//             </Row>
-//           </>
-//   )
-// };
-// export default Index;
+const StarshipView = ({...props}) => {
 
-
-
-const StarshipView = ({ ...props }) => {
   const starship = { ...props };
 
   return (
-          <div className="card" style={{ 'width': '100%', 'marginTop': '10px' }}>
-            <div className="card-heading">
-              <img src={starship.image} className="episode-thumbnail" alt="episode-poster" />
-              <h2 className="card-title">{starship.name}</h2>
-            </div>
+          <>
+            <Row>
+              <Col className="col-md-12">
+                <Heading variant="primary" className={styles.title}>{starship.name}</Heading>
+                <Subheading variant="primary" className={styles.subtitle}>{starship.name}</Subheading>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="col-md-12">
+                <Separator variant="primary"/>
+              </Col>
+            </Row>
+            <Row>
+              <Col md="6">
+                <Card variant="primary" className={styles.cardPanel}>
+                  <Heading variant="primary" className={styles.cardTitle}>{starship.name}</Heading>
+                  <CardImg src={starship.image} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
+                  <div className={`${styles.infoPanel}`}>
+                    <ul className={`${styles.infoList}`}>
+                      <li className={`${styles.infoListItem}`}>
+                        Class: <InfoText variant="primary">{starship.starshipClass}</InfoText>
+                      </li>
+                      <li className={`${styles.infoListItem}`}>
+                        Cost: <InfoText variant="primary">{starship.cost}</InfoText>
+                      </li>
+                      <li className={`${styles.infoListItem}`} >
+                        Crew: <InfoText variant="primary">{starship.crew}</InfoText>
+                      </li>
+                      <li className={`${styles.infoListItem}`}>
+                        Max Atmospheric Speed: <InfoText variant="primary">{starship.maxAtmosphericSpeed}</InfoText>
+                      </li>
+                      <li className={`${styles.infoListItem}`}>
+                        Hyperdrive Rating: <InfoText variant="primary">{starship.hyperdriveRating}</InfoText>
+                      </li>
+                    </ul>
+                  </div>
+                </Card>
+              </Col>
+              <Col md="6">
+                  <div className={styles.chartPanel}>
 
-            <h5 className="card-subtitle mb-2 text-muted">Class: {starship.starshipClass} </h5>
-            <h5 className="card-subtitle mb-2 text-muted">Cost: {starship.cost} </h5>
-            <h5 className="card-subtitle mb-2 text-muted">Crew: {starship.crew} </h5>
-            <h5 className="card-subtitle mb-2 text-muted">Max Atmospheric Speed: {starship.maxAtmosphericSpeed} </h5>
-            <h5 className="card-button">Hyperdrive rating: {starship.hyperdriveRating}</h5>
-
-          </div>
+                  </div>
+              </Col>
+            </Row>
+          </>
   )
-
 };
 export default StarshipView;
