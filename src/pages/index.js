@@ -25,7 +25,7 @@ const Pages = ({}) => {
               <Route exact path="/characters"  component={Characters} />
               <Route path="/characters/:characterId" component={Character}/>
 
-              <Route path="/starships/:id" component={Starship}/>
+              <Route path="/starships/:starshipId" component={Starship}/>
             </PrivateRoute>
           </Switch>
   );
