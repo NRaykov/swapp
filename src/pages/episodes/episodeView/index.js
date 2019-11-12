@@ -6,9 +6,7 @@ import Subheading from "../../../components/elements/subheading/subheading.js";
 
 import styles from "./styles.module.css";
 import Card from "../../../components/elements/card/card";
-import { Link as RouterLink } from 'react-router-dom';
-
-import { Link } from 'rebass';
+import { Link, Link as RouterLink } from 'react-router-dom';
 
 const EpisodeView = ({...props}) => {
 

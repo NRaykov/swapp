@@ -45,6 +45,7 @@ const Character = () => {
   if (error)return 'Error';
 
   const {...person} = data.person;
+  console.log(data.person);
 
   return(
           <React.Fragment>

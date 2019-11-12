@@ -4,9 +4,7 @@ import  Heading from "../../../components/elements/heading/heading";
 import Card from "../../../components/elements/card/card"
 import {CardImg, CardText, Row, Col} from 'reactstrap';
 import styles from "./styles.module.css";
-import { Query } from "react-apollo";
-import { Link as RouterLink } from 'react-router-dom';
-import {Link} from 'rebass';
+import { Link, Link as RouterLink } from 'react-router-dom';
 import gql from "graphql-tag";
 import Loading from '../../../components/loginForm/loading';
 import {useQuery} from "@apollo/react-hooks";
