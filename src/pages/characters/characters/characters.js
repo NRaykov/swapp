@@ -4,7 +4,8 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from "graphql-tag";
 
-import {CardImg, Col, Row, NavLink} from "reactstrap";
+import {CardImg, Col, Row} from "reactstrap";
+import { Link } from 'react-router-dom';
 import Button from "../../../components/elements/button/button";
 import styles from "./styles.module.css";
 import Card from "../../../components/elements/card/card";
@@ -65,7 +66,7 @@ const Characters = () => {
   };
         const characters = allPeople.map(({ node }) => (
             <Col md="4" key={node.id}>
-              <NavLink className={ styles.cardPanel }
+              <Link className={ styles.cardPanel }
                     variant="nav" key={node.id}
                     to={`/characters/${node.id}`}>
                 <Card variant="primary" className={styles.cardPanel}>
@@ -74,7 +75,7 @@ const Characters = () => {
                     <Heading variant="primary" className={styles.primaryHeading}>{node.name}</Heading>
                   </div>
                 </Card>
-              </NavLink>
+              </Link>
             </Col>
         ));
 
