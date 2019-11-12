@@ -36,15 +36,6 @@ import { themes } from './components';
       typeDefs
     });
 
-
-
-    //TEST
-   // localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkOTZmYTFlYTQxYTA4MGY4YjIxMjMwMiIsImVtYWlsIjoiZGVtb0BzdDYuaW8iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE1NzMzOTc5MjMsImV4cCI6MTU3MzM5OTcyM30._jkf3y994qsv_b0BwzMfqDfYvKdxKjNccP6ci7JpHxQ');
-
-
-
-
-
     const isAuthed = !!localStorage.getItem('token');
     //const isAuthed = true;
 

@@ -13,17 +13,19 @@ const LOG_IN = gql`
     }
   }
 `;
+
+
+//TODO Test Validation
 const Login = ({...props}) => {
   const client = useApolloClient();
 
   
   const [login, { loading, error }] = useMutation(LOG_IN, {
     onCompleted: ({ signIn: token}) => {
-
       localStorage.setItem('token', token.token);
 
       client.writeData({ data: { authenticated: true } }); 
-      props.history.push('/episodes');     
+      props.history.push('/episodes');
     },
   });
 
