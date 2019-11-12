@@ -4,7 +4,7 @@ import Episode from './episodes/episode/episode';
 import Episodes from './episodes/episodes/episodes';
 
 import Characters from './characters/characters/characters'
-import Character from './characters/characterView';
+import Character from './characters/character/character';
 
 import Starship from './starships/starship/starship'
 //import Login from '../components/login'
