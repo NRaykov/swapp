@@ -32,7 +32,7 @@ const CharacterView = ({...props}) => {
             <Col md="6">
               <Card variant="primary" className={styles.cardPanel}>
                 <Heading variant="primary" className={styles.cardTitle}>Character</Heading>
-                <CardImg src={person.image} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
+                <CardImg src={person.image} className={`${styles.thumbnail} img-fluid w-100`} alt="Card image cap" />
                 <div className={`${styles.infoPanel}`}>
                   <ul className={`${styles.infoList}`}>
                     <li className={`${styles.infoListItem}`}>

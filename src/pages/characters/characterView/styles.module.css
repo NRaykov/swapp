@@ -33,6 +33,24 @@
     height: 100%;
     width: 100%;
 }
+
+.starshipPanel {
+    max-height: 18rem;
+    width: 100%;
+}
+.starshipPanel .cardPanel {
+    display: flex;
+    width: 100%;
+    padding: 0;
+}
+.starshipPanel .thumbnail {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1rem;
+}
+
+
+
 .infoList {
     margin: 0;
     padding: 1rem 0;

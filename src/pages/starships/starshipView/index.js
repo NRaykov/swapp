@@ -31,7 +31,7 @@ const StarshipView = ({...props}) => {
               <Col md="6">
                 <Card variant="primary" className={styles.cardPanel}>
                   <Heading variant="primary" className={styles.cardTitle}>{starship.name}</Heading>
-                  <CardImg src={starship.image} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
+                  <CardImg src={starship.image} className={`${styles.thumbnail} img-fluid w-100`} alt="Card image cap" />
                   <div className={`${styles.infoPanel}`}>
                     <ul className={`${styles.infoList}`}>
                       <li className={`${styles.infoListItem}`}>
