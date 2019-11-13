@@ -2,7 +2,10 @@
 
 #### Author: Nedyalko Raykov
 #### Email: ned.raykov@gmail.com / nediotenev@gmail.com
+<<<<<<< Updated upstream
 #### Date: 06:11:2019
+=======
+>>>>>>> Stashed changes
 #### License: MIT
 
 # Project Info
