@@ -2,8 +2,7 @@ import React from 'react';
 import gql from "graphql-tag";
 import { useParams } from 'react-router-dom';
 import { useQuery} from '@apollo/react-hooks';
-import CharacterView from '../characterView/';
-
+import CharacterView from '../characterView/characterView';
 
 const episodeQuery = gql`
   query EpisodeQuery($characterId: ID!) {
@@ -41,8 +40,8 @@ const Character = () => {
     variables: {characterId}
   });
 
-  if (loading) return 'Loading';
-  if (error)return 'Error';
+  if (loading) return 'Loading ...';
+  if (error)return (localStorage.clear());
 
   const {...person} = data.person;
   console.log(data.person);

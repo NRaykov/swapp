@@ -6,7 +6,6 @@ import {CardImg, CardText, Row, Col} from 'reactstrap';
 import styles from "./styles.module.css";
 import { Link, Link as RouterLink } from 'react-router-dom';
 import gql from "graphql-tag";
-import Loading from '../../../components/loginForm/loading';
 import {useQuery} from "@apollo/react-hooks";
 
 
@@ -31,8 +30,8 @@ const Episodes = () => {
 
   const { data, loading, error } = useQuery(episodesQuery);
 
-  if (loading) return 'Loading';
-  if (error)return 'Error';
+  if (loading) return 'Loading ...';
+  if (error)return (localStorage.clear());
 
   const [...allEpisodes] = data.allEpisodes.edges;
 

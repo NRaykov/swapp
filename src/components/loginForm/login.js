@@ -4,7 +4,6 @@ import { useApolloClient, useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import LoginForm from './loginForm';
-import Loading from './loading';
 
 const LOG_IN = gql`
   mutation signIn($email: String!, $password: String!) {
@@ -14,9 +13,8 @@ const LOG_IN = gql`
   }
 `;
 
-
 //TODO Test Validation
-const Login = ({...props}) => {
+const Login = ({themeChanger, ...props}) => {
   const client = useApolloClient();
 
   
@@ -29,13 +27,13 @@ const Login = ({...props}) => {
     },
   });
 
-  if (loading) return <Loading/>;
+  if (loading) return 'Loading ...';
   if (error) return (<p className="center-text">{error.graphQLErrors.map(({ message }, i) => (
     <span key={i}>{message}</span>
   ))}
   </p>);
 
-  return <LoginForm login={login} />;
+  return <LoginForm login={login} themeChanger={themeChanger}/>;
 };
 
 export default withRouter(Login);

@@ -17,6 +17,7 @@ import Container from './components/elements/container/container';
 import Header from "./components/header/header";
 
 import Home from "./pages/home";
+import LoginGuard from "./components/loginForm/guards/loginGuard"
 
 //Styling
 import './App.css';
@@ -62,12 +63,10 @@ export const AppComponent = () => {
           <BrowserRouter>
             <ThemeProvider theme={themes[getTheme]}>
               <Container variant="primary" className="container-main">
-
                   <Header themeChanger={themeChanger}/>
                   <div className="container py-5">
                     <Home themeChanger={themeChanger}/>
                   </div>
-
               </Container>
             </ThemeProvider>
           </BrowserRouter>

@@ -39,8 +39,8 @@ const Characters = () => {
     variables: { first }
   });
 
-  if (loading) return 'Loading';
-  if (error)return 'Error';
+  if (loading) return 'Loading ...';
+  if (error)return (localStorage.clear());
 
   const [...allPeople] = data.allPeople.edges;
   let { hasNextPage, endCursor } = data.allPeople.pageInfo;

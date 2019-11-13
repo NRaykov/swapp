@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect} from 'react-router-dom';
 
-import Login from './loginForm/login';
+import Login from '../login';
 
 const RedirectToLogin = (props) => {
     localStorage.clear();

@@ -18,7 +18,7 @@ const EpisodeView = ({...props}) => {
   console.log(episode);
 
   return (
-          <React.Fragment>
+          <>
             <Card variant="primary" className={styles.cardPanel}>
                 <Row>
                   <Col md="3">
@@ -60,7 +60,7 @@ const EpisodeView = ({...props}) => {
                   })
                   }
               </Row>
-          </React.Fragment>
+          </>
   )
 };
 export default EpisodeView

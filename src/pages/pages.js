@@ -7,26 +7,26 @@ import Characters from './characters/characters/characters'
 import Character from './characters/character/character';
 
 import Starship from './starships/starship/starship'
-//import Login from '../components/login'
-import PrivateRoute from "../components/PrivateRoute";
+import LoginGuard from "../components/loginForm/guards/loginGuard";
+import Login from "../components/loginForm/login";
 //import {isAuthenticated} from "../../guards/auth";
 
 
-const Pages = ({}) => {
+const Pages = ({themeChanger}) => {
 
   return (
           <Switch>
-            <PrivateRoute>
+            <LoginGuard themeChanger={themeChanger}>
               <Route exact path="/" component={Episodes}/>
+
               <Route exact path="/episodes/"  component={Episodes} />
               <Route path="/episodes/:episodeId" component={Episode} />
-
 
               <Route exact path="/characters"  component={Characters} />
               <Route path="/characters/:characterId" component={Character}/>
 
               <Route path="/starships/:starshipId" component={Starship}/>
-            </PrivateRoute>
+            </LoginGuard>
           </Switch>
   );
 };

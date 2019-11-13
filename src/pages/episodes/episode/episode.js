@@ -3,8 +3,7 @@ import gql from "graphql-tag";
 import { useParams} from 'react-router-dom';
 import { useQuery} from '@apollo/react-hooks';
 
-import EpisodeView from '../episodeView';
-import Loading from '../../../components/loginForm/loading';
+import EpisodeView from '../episodeView/episodeView';
 //import RedirectToLogin from '../components/RedirectToLogin';
 import Button from '../../../components/elements/button/button'
 import styles from './styles.module.css';
@@ -48,8 +47,8 @@ const Episode = () => {
         variables: {episodeId, first}
     });
 
-    if (loading) return <Loading/>;
-    if (error)return 'Error';
+    if (loading) return 'Loading ...';
+    if (error)return (localStorage.clear());
 
     const {...episode} = data.episode;
     let {hasNextPage, endCursor} = episode.people.pageInfo;
@@ -58,7 +57,6 @@ const Episode = () => {
 
 
     console.log('Episode');
-    
 
     const loadMore = () => {
       fetchMore({
