@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardImg, Col } from "reactstrap";
+import {CardImg, Col, Row } from "reactstrap";
 import styles from "./styles.module.css";
 
 import Card from "../../../components/elements/card/card";
@@ -8,11 +8,11 @@ import Subheading from "../../../components/elements/subheading/subheading";
 import Separator from "../../../components/elements/separator/separator";
 
 import InfoText from "../../../components/elements/infotext/infotext";
-import Row from "reactstrap/es/Row";
 
 
-const Starship = ({...props}) => {
+const StarshipView = ({...props}) => {
 
+<<<<<<< HEAD
   //Placeholder
   const starshipDetails = [
     {
@@ -26,14 +26,16 @@ const Starship = ({...props}) => {
       rating: 1
     }
   ];
+=======
+  const starship = { ...props };
+>>>>>>> 79c2a18ceeb43e9ff0b2b990ded2ea2f0d3ba524
 
-  // TODO Chart Data
   return (
           <>
             <Row>
               <Col className="col-md-12">
-                <Heading variant="primary" className={styles.title}>{starshipDetails[0].class}</Heading>
-                <Subheading variant="primary" className={styles.subtitle}>({starshipDetails[0].description})</Subheading>
+                <Heading variant="primary" className={styles.title}>{starship.name}</Heading>
+                <Subheading variant="primary" className={styles.subtitle}>{starship.name}</Subheading>
               </Col>
             </Row>
             <Row>
@@ -44,24 +46,24 @@ const Starship = ({...props}) => {
             <Row>
               <Col md="6">
                 <Card variant="primary" className={styles.cardPanel}>
-                  <Heading variant="primary" className={styles.cardTitle}>{starshipDetails[0].class}</Heading>
-                  <CardImg src={starshipDetails[0].img} className={`${styles.thumbnail} img-fluid`} alt="Card image cap" />
+                  <Heading variant="primary" className={styles.cardTitle}>{starship.name}</Heading>
+                  <CardImg src={starship.image} className={`${styles.thumbnail} img-fluid w-100`} alt="Card image cap" />
                   <div className={`${styles.infoPanel}`}>
                     <ul className={`${styles.infoList}`}>
                       <li className={`${styles.infoListItem}`}>
-                        Class: <InfoText variant="primary">{starshipDetails[0].class}</InfoText>
+                        Class: <InfoText variant="primary">{starship.starshipClass}</InfoText>
                       </li>
                       <li className={`${styles.infoListItem}`}>
-                        Cost: <InfoText variant="primary">{starshipDetails[0].cost}</InfoText>
+                        Cost: <InfoText variant="primary">{starship.cost}</InfoText>
                       </li>
                       <li className={`${styles.infoListItem}`} >
-                        Crew: <InfoText variant="primary">{starshipDetails[0].crew}</InfoText>
+                        Crew: <InfoText variant="primary">{starship.crew}</InfoText>
                       </li>
                       <li className={`${styles.infoListItem}`}>
-                        Max Atmospheric Speed: <InfoText variant="primary">{starshipDetails[0].speed}</InfoText>
+                        Max Atmospheric Speed: <InfoText variant="primary">{starship.maxAtmosphericSpeed}</InfoText>
                       </li>
                       <li className={`${styles.infoListItem}`}>
-                        Hyperdrive Rating: <InfoText variant="primary">{starshipDetails[0].rating}</InfoText>
+                        Hyperdrive Rating: <InfoText variant="primary">{starship.hyperdriveRating}</InfoText>
                       </li>
                     </ul>
                   </div>
@@ -76,4 +78,4 @@ const Starship = ({...props}) => {
           </>
   )
 };
-export default Starship;
+export default StarshipView;
