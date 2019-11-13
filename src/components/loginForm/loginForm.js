@@ -28,7 +28,7 @@ export default class LoginForm extends React.Component {
                 >SWAPP</h1>
 
                 <Form variant="primary" className={`${styles.formGroupPanel}`} onSubmit={this.handleSubmit}>
-                  {/*<div className={`${styles.error}`}>Invalid credentials!</div>*/}
+                  <div className={`${styles.error}`}>Invalid credentials!</div>
                   <FormGroup>
                     <Input variant="primary" className={`${styles.input}`}
                            type="email" name="email" id="emailAddress" placeholder="email"

@@ -17,6 +17,8 @@ const Pages = ({themeChanger}) => {
   return (
           <Switch>
             <LoginGuard themeChanger={themeChanger}>
+              <Route exact path="/login" component={Login}/>
+
               <Route exact path="/" component={Episodes}/>
 
               <Route exact path="/episodes/"  component={Episodes} />

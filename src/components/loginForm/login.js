@@ -27,13 +27,17 @@ const Login = ({themeChanger, ...props}) => {
     },
   });
 
+  //TODO Better error handling
   if (loading) return 'Loading ...';
-  if (error) return (<p className="center-text">{error.graphQLErrors.map(({ message }, i) => (
+  if (error) return (
+          <p className="center-text">{error.graphQLErrors.map(({ message }, i) => (
     <span key={i}>{message}</span>
   ))}
   </p>);
 
-  return <LoginForm login={login} themeChanger={themeChanger}/>;
+
+
+  return (<LoginForm login={login} themeChanger={themeChanger}/>);
 };
 
 export default withRouter(Login);

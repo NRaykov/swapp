@@ -1,7 +1,8 @@
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, Button} from "reactstrap";
 import {Link} from "react-router-dom";
 import React, {useState} from "react";
-import { FaSignInAlt } from 'react-icons/fa';
+import LoginButton from "./loginBtn";
+
 
 const Header = ({themeChanger}) => {
 
@@ -25,7 +26,7 @@ const Header = ({themeChanger}) => {
                       <Link className="nav-link" to="/characters">Characters</Link>
                     </NavItem>
                     <NavItem>
-                      <Button variant="primary"  className="loginButton"><FaSignInAlt/></Button>
+                      <LoginButton/>
                     </NavItem>
                   </Nav>
                 </Collapse>

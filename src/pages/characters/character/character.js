@@ -47,9 +47,9 @@ const Character = () => {
   console.log(data.person);
 
   return(
-          <React.Fragment>
+          <>
             <CharacterView  {...person} />
-          </React.Fragment>
+          </>
   )
 
 };
