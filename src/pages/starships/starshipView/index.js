@@ -12,23 +12,7 @@ import InfoText from "../../../components/elements/infotext/infotext";
 
 const StarshipView = ({...props}) => {
 
-<<<<<<< HEAD
-  //Placeholder
-  const starshipDetails = [
-    {
-      id: "1",
-      class: "Starfighter",
-      description: "Delta-7 Aethersprite-class interceptor",
-      img: "https://via.placeholder.com/460",
-      cost: "1800000 credits",
-      crew: 1,
-      speed: 1150,
-      rating: 1
-    }
-  ];
-=======
   const starship = { ...props };
->>>>>>> 79c2a18ceeb43e9ff0b2b990ded2ea2f0d3ba524
 
   return (
           <>
@@ -70,9 +54,9 @@ const StarshipView = ({...props}) => {
                 </Card>
               </Col>
               <Col md="6">
-                  <div className={styles.chartPanel}>
+                <div className={styles.chartPanel}>
 
-                  </div>
+                </div>
               </Col>
             </Row>
           </>
