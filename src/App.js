@@ -13,17 +13,17 @@ import {typeDefs} from './client/local'
 
 //Navigation and login
 import { BrowserRouter } from 'react-router-dom';
-import Container from './components/elements/container/container';
-import Header from "./components/header/header";
+import Container from './components/StylesComponents/elements/container/container';
+import Header from "./components/Header/Header";
 
-import Home from "./pages/home";
-import LoginGuard from "./components/loginForm/guards/loginGuard"
+import Home from "./pages/HomeComponent/Home";
+import LoginGuard from "./components/LoginSystem/guards/loginGuard"
 
 //Styling
 import './App.css';
 import { ThemeProvider } from 'styled-components/macro';
-import ThemeChanger from './components/themeChanger';
-import { themes } from './components';
+import ThemeChanger from './components/StylesComponents/themeChanger';
+import { themes } from './components/StylesComponents';
 
     const cache = new InMemoryCache();
 
