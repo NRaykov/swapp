@@ -10,6 +10,7 @@ import Button from "../../../components/elements/button/button";
 import styles from "./styles.module.css";
 import Card from "../../../components/elements/card/card";
 import Heading from "../../../components/elements/heading/heading"
+import ErrorHandler from "../../../components/loginForm/guards/errorHandler";
 
 
 const charactersQuery = gql`
@@ -33,14 +34,15 @@ const charactersQuery = gql`
 
 const Characters = () => {
 
-  let first = 12;
+  const placeholderImage = "https://i.etsystatic.com/17236199/r/il/598fda/1553216794/il_570xN.1553216794_ayds.jpg";
 
+  let first = 12;
   const { data, loading, error, fetchMore } = useQuery(charactersQuery, {
     variables: { first }
   });
 
   if (loading) return 'Loading ...';
-  if (error)return (localStorage.clear());
+  if (error)return (<ErrorHandler/>);
 
   const [...allPeople] = data.allPeople.edges;
   let { hasNextPage, endCursor } = data.allPeople.pageInfo;
@@ -70,7 +72,7 @@ const Characters = () => {
                     variant="nav" key={node.id}
                     to={`/characters/${node.id}`}>
                 <Card variant="primary" className={styles.cardPanel}>
-                  <CardImg src={node.image} className={`${styles.thumbnail} img-fluid foo`} alt="Card image cap" />
+                  <CardImg src={node.image === null ? placeholderImage : node.image} className={`${styles.thumbnail} img-fluid foo`} alt="Card image cap" />
                   <div className={`${styles.cardBody}`}>
                     <Heading variant="primary" className={styles.primaryHeading}>{node.name}</Heading>
                   </div>

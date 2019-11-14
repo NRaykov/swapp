@@ -5,7 +5,7 @@ import { AppComponent } from './App';
 import 'bootstrap/dist/css/bootstrap.css';
 /* Global Styles */
 import './index.css';
-import './fonts/SfDistantGalaxy-0l3d.ttf';
+import './assets/fonts/SfDistantGalaxy-0l3d.ttf';
 
 import * as serviceWorker from './serviceWorker';
 

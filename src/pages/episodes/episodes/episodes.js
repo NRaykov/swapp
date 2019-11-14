@@ -7,6 +7,7 @@ import styles from "./styles.module.css";
 import { Link, Link as RouterLink } from 'react-router-dom';
 import gql from "graphql-tag";
 import {useQuery} from "@apollo/react-hooks";
+import ErrorHandler from "../../../components/loginForm/guards/errorHandler";
 
 
 
@@ -31,7 +32,7 @@ const Episodes = () => {
   const { data, loading, error } = useQuery(episodesQuery);
 
   if (loading) return 'Loading ...';
-  if (error)return (localStorage.clear());
+  if (error)return (<ErrorHandler/>);
 
   const [...allEpisodes] = data.allEpisodes.edges;
 

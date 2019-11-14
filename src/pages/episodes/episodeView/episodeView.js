@@ -10,6 +10,8 @@ import { Link, Link as RouterLink } from 'react-router-dom';
 
 const EpisodeView = ({...props}) => {
 
+  const placeholderImage = "https://i.etsystatic.com/17236199/r/il/598fda/1553216794/il_570xN.1553216794_ayds.jpg";
+
   const episode = {...props};
 
   console.log('EpisodeView');
@@ -48,7 +50,7 @@ const EpisodeView = ({...props}) => {
                                 className={ styles.cardPanel }
                                 as={RouterLink}>
                               <Card variant="primary" className={styles.characterPanel}>
-                                <CardImg src={character.node.image} className={`${styles.characterThumb} img-fluid`} alt="Card image cap" />
+                                <CardImg src={character.node.image === null ? placeholderImage : character.node.image } className={`${styles.characterThumb} img-fluid`} alt="Card image cap" />
                                 <div className={`${styles.cardBody}`}>
                                   <Heading variant="primary" className={styles.primaryHeading}>{character.node.name}</Heading>
                                 </div>

@@ -1,7 +1,7 @@
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, Button} from "reactstrap";
 import {Link} from "react-router-dom";
 import React, {useState} from "react";
-import LoginButton from "./loginBtn";
+import LoginButton from "../loginForm/guards/loginBtn";
 
 
 const Header = ({themeChanger}) => {

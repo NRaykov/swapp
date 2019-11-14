@@ -4,9 +4,9 @@ import { useParams} from 'react-router-dom';
 import { useQuery} from '@apollo/react-hooks';
 
 import EpisodeView from '../episodeView/episodeView';
-//import RedirectToLogin from '../components/RedirectToLogin';
 import Button from '../../../components/elements/button/button'
 import styles from './styles.module.css';
+import ErrorHandler from "../../../components/loginForm/guards/errorHandler";
 
 const episodeQuery = gql`
   query EpisodeQuery($episodeId: ID!, $first: Int, $after: String) {
@@ -48,7 +48,7 @@ const Episode = () => {
     });
 
     if (loading) return 'Loading ...';
-    if (error)return (localStorage.clear());
+    if (error)return (<ErrorHandler/>);
 
     const {...episode} = data.episode;
     let {hasNextPage, endCursor} = episode.people.pageInfo;

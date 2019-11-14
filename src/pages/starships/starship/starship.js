@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { useParams} from 'react-router-dom';
 import { useQuery} from '@apollo/react-hooks';
 import StarshipView from '../starshipView/starshipView';
+import ErrorHandler from "../../../components/loginForm/guards/errorHandler";
 
 
 const starshipQuery = gql`
@@ -29,7 +30,7 @@ const Starship = () => {
   });
 
   if (loading) return 'Loading ...';
-  if (error) return (localStorage.clear());
+  if (error) return (<ErrorHandler/>);
 
 
   const {...starship} = data.starship;

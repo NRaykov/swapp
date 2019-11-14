@@ -3,13 +3,13 @@
 @font-face {
   font-family: 'StarWars';
   src: local('StarWars'),
-  url(./fonts/SfDistantGalaxy-0l3d.ttf) format('truetype');
+  url(assets/fonts/SfDistantGalaxy-0l3d.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'RobotoBlack';
   src: local('RobotoBlack'),
-  url(./fonts/Roboto-Black.ttf) format('truetype');
+  url(assets/fonts/Roboto-Black.ttf) format('truetype');
 }
 /** Calculate and replace 'pixel' dimension with 'rem' **/
 html {

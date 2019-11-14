@@ -16,6 +16,9 @@ const CharacterView = ({...props}) => {
 
   const person = { ...props };
 
+  const placeholderImage = "https://i.etsystatic.com/17236199/r/il/598fda/1553216794/il_570xN.1553216794_ayds.jpg";
+  console.log(person.image);
+
   return (
           <>
             <Row>
@@ -32,7 +35,7 @@ const CharacterView = ({...props}) => {
               <Col md="6">
                 <Card variant="primary" className={styles.cardPanel}>
                   <Heading variant="primary" className={styles.cardTitle}>Character</Heading>
-                  <CardImg src={person.image} className={`${styles.thumbnail} img-fluid w-100`} alt="Card image cap" />
+                  <CardImg src={person.image === null ? placeholderImage : person.image } className={`${styles.thumbnail} img-fluid w-100`} alt="Card image cap" />
                   <div className={`${styles.infoPanel}`}>
                     <ul className={`${styles.infoList}`}>
                       <li className={`${styles.infoListItem}`}>

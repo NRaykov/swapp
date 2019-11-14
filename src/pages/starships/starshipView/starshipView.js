@@ -13,6 +13,7 @@ import InfoText from "../../../components/elements/infotext/infotext";
 const StarshipView = ({...props}) => {
 
   const starship = { ...props };
+  const placeholderImage = "https://i.etsystatic.com/17236199/r/il/598fda/1553216794/il_570xN.1553216794_ayds.jpg";
 
   return (
           <>
@@ -31,7 +32,7 @@ const StarshipView = ({...props}) => {
               <Col md="6">
                 <Card variant="primary" className={styles.cardPanel}>
                   <Heading variant="primary" className={styles.cardTitle}>{starship.name}</Heading>
-                  <CardImg src={starship.image} className={`${styles.thumbnail} img-fluid w-100`} alt="Card image cap" />
+                  <CardImg src={starship.image === null ? placeholderImage : starship.image} className={`${styles.thumbnail} img-fluid w-100`} alt="Card image cap" />
                   <div className={`${styles.infoPanel}`}>
                     <ul className={`${styles.infoList}`}>
                       <li className={`${styles.infoListItem}`}>
