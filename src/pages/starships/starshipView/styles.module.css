@@ -52,3 +52,10 @@
 .infoPanel {
     margin: 1rem;
 }
+
+/* Chart Panel */
+.chartPanel {
+    padding: 3rem;
+    background-color: white;
+    border-radius: 1rem;
+}
