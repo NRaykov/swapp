@@ -56,7 +56,8 @@ export const AppComponent = () => {
     const [theme, setTheme] = useState('light');
     const themeChanger = ThemeChanger(theme, setTheme);
     const getTheme = localStorage.getItem('Theme');
-    /**** Test Apollo Client - Fetch demo data ****/
+    console.log(getTheme);
+
 
   return (
    <ApolloProvider client={client}>

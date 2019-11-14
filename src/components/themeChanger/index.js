@@ -1,5 +1,4 @@
 const ThemeChanger = (theme, setTheme) => {
-  localStorage.setItem('Theme', theme);
   const toggleTheme = () => {
     if (theme === 'light') {
       setTheme('dark'); localStorage.setItem('Theme', theme);
@@ -9,6 +8,6 @@ const ThemeChanger = (theme, setTheme) => {
   };
 
   return toggleTheme;
-}
+};
 
 export default ThemeChanger;
