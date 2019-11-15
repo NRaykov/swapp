@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery} from '@apollo/react-hooks';
-import { characterQuery } from "../../../client/Queries";
+import { characterQuery } from "../../../client/queries";
 import CharacterView from '../CharacterView/CharacterView';
 import ErrorHandler from "../../../components/LoginSystem/guards/errorHandler";
 

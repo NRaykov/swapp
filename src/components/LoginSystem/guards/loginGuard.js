@@ -1,16 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-
-import gql from 'graphql-tag.macro';
+import { authQuery } from "../../../client/queries";
 import Login from '../Login';
-export const AUTHENTICATED_QUERY = gql`
-  query IsAuthenticated {
-    authenticated @client
-  }
-`;
+
 
 const LoginGuard = ({themeChanger, ...props}) => {
-    const { data } = useQuery(AUTHENTICATED_QUERY);
+    const { data } = useQuery(authQuery);
 
     return(
         data.authenticated ? props.children : 

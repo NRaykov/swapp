@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { authQuery } from "../../client/Queries";
+import { authQuery } from "../../client/queries";
 
 import Pages from '../Pages';
 

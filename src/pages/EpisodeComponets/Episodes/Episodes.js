@@ -5,7 +5,7 @@ import {CardImg, CardText, Row, Col} from 'reactstrap';
 import styles from "./styles.module.css";
 import { Link, Link as RouterLink } from 'react-router-dom';
 import {useQuery} from "@apollo/react-hooks";
-import {episodesQuery} from "../../../client/Queries";
+import {episodesQuery} from "../../../client/queries";
 import ErrorHandler from "../../../components/LoginSystem/guards/errorHandler";
 
 const Episodes = () => {

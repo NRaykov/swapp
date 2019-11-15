@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams} from 'react-router-dom';
 import { useQuery} from '@apollo/react-hooks';
-import { episodeQuery } from "../../../client/Queries";
+import { episodeQuery } from "../../../client/queries";
 
 import EpisodeView from '../EpisodeView/EpisodeView';
 import Button from '../../../components/StylesComponents/elements/button/button'

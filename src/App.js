@@ -15,10 +15,7 @@ import {typeDefs} from './client/local'
 import { BrowserRouter } from 'react-router-dom';
 import Container from './components/StylesComponents/elements/container/container';
 import Header from "./components/Header/Header";
-
 import Home from "./pages/HomeComponent/Home";
-import LoginGuard from "./components/LoginSystem/guards/loginGuard"
-
 //Styling
 import './App.css';
 import { ThemeProvider } from 'styled-components/macro';
@@ -38,8 +35,6 @@ import { themes } from './components/StylesComponents';
     });
 
     const isAuthed = !!localStorage.getItem('token');
-    //const isAuthed = true;
-
 
     cache.writeData({
       data: {
@@ -49,8 +44,6 @@ import { themes } from './components/StylesComponents';
 
 
 export const AppComponent = () => {
-
-
 
     /**** Set Theme to LocalStorage ****/
     const [theme, setTheme] = useState('light');

@@ -7,7 +7,7 @@ const LoginButton = ({}) => {
 
   const logIn = () => {
     localStorage.removeItem('token');
-    window.location.reload();
+    window.location.href = "/";
   };
 
   return  (<Button variant="primary"  onClick={logIn} className="loginButton"><FaSignInAlt/></Button>);

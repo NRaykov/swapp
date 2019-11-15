@@ -8,7 +8,7 @@ const ErrorHandler = () => {
     return(
         <>
           <Login/>
-          <Redirect to={'/login'} />
+          <Redirect to={'/'} />
         </>
     )
 };

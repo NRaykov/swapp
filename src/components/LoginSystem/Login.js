@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { useApolloClient, useMutation } from '@apollo/react-hooks';
-import {logInQuery} from "../../client/Queries";
+import {logInQuery} from "../../client/queries";
 import LoginForm from './LoginForm';
 
 //TODO Test Validation
@@ -13,19 +13,17 @@ const Login = ({themeChanger, ...props}) => {
       localStorage.setItem('token', token.token);
 
       client.writeData({ data: { authenticated: true } }); 
-      props.history.push('/Episodes');
+      props.history.push('/episodes');
     },
   });
 
-  //TODO Better error handling
   if (loading) return 'Loading ...';
   if (error) return (
-          <p className="center-text">{error.graphQLErrors.map(({ message }, i) => (
-    <span key={i}>{message}</span>
-  ))}
-  </p>);
-
-
+          <LoginForm login={login} themeChanger={themeChanger} error={
+            error.graphQLErrors.map(({ message }, i) => (
+                  <span key={i}>{message}</span>
+            ))
+          }/>);
 
   return (<LoginForm login={login} themeChanger={themeChanger}/>);
 };

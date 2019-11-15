@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams} from 'react-router-dom';
 import { useQuery} from '@apollo/react-hooks';
-import { starshipQuery } from "../../../client/Queries";
+import { starshipQuery } from "../../../client/queries";
 import StarshipView from '../StarshipView/StarshipView';
 import ErrorHandler from "../../../components/LoginSystem/guards/errorHandler";
 

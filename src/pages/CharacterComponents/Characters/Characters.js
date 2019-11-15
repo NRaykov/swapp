@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import {charactersQuery} from "../../../client/Queries";
+import {charactersQuery} from "../../../client/queries";
 
 import {CardImg, Col, Row} from "reactstrap";
 import { Link } from 'react-router-dom';
