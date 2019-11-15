@@ -6,9 +6,12 @@ import Card from "../../../components/StylesComponents/elements/card/card";
 import Heading from "../../../components/StylesComponents/elements/heading/heading";
 import Subheading from "../../../components/StylesComponents/elements/subheading/subheading";
 import Separator from "../../../components/StylesComponents/elements/separator/separator";
-
 import InfoText from "../../../components/StylesComponents/elements/infotext/infotext";
+
+import { useQuery} from '@apollo/react-hooks';
+import { starshipsQuery } from "../../../client/queries";
 import StarshipChart from "../Chart/Chart";
+import ErrorHandler from "../../../components/LoginSystem/guards/errorHandler";
 
 
 const StarshipView = ({...props}) => {
@@ -17,6 +20,14 @@ const StarshipView = ({...props}) => {
   const starship = { ...props };
   const placeholderImage = "https://i.etsystatic.com/17236199/r/il/598fda/1553216794/il_570xN.1553216794_ayds.jpg";
 
+  const {starshipClass} = starship;
+  const {data, loading, error} = useQuery(starshipsQuery, {
+    variables: {starshipClass}
+  });
+
+  if (loading) return 'Loading...';
+  if (error)return (<ErrorHandler/>);
+
   console.log(starship);
 
   return (
@@ -24,7 +35,7 @@ const StarshipView = ({...props}) => {
             <Row>
               <Col className="col-md-12">
                 <Heading variant="primary" className={styles.title}>{starship.name}</Heading>
-                <Subheading variant="primary" className={styles.subtitle}>{starship.name}</Subheading>
+                <Subheading variant="primary" className={styles.subtitle}>{starship.starshipClass}</Subheading>
               </Col>
             </Row>
             <Row>
@@ -61,7 +72,7 @@ const StarshipView = ({...props}) => {
               <Col md="6">
                 <Subheading variant="primary" className={styles.subtitle}>Compared to Starship Class Max</Subheading>
                 <Card className={styles.chartPanel}>
-                  <StarshipChart/>
+                  <StarshipChart starship={starship} data={data}/>
                 </Card>
               </Col>
             </Row>
