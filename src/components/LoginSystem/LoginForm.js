@@ -29,6 +29,7 @@ export default class LoginForm extends React.Component {
 
                 <Form variant="primary" className={`${styles.formGroupPanel}`} onSubmit={this.handleSubmit}>
                   <div className={`${styles.error}`}>{this.props.error}</div>
+                  <div className={`${styles.loading}`}>{this.props.loading}</div>
                   <FormGroup>
                     <Input variant="primary" className={`${styles.input}`}
                            type="email" name="email" id="emailAddress" placeholder="email"

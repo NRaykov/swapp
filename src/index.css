@@ -110,17 +110,11 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: inherit;
     border: none;
 }
-.loginButton {
-    background-color: #FFE300;
+.loginButton > svg {
+    color: inherit!important;
 }
-
-
-
-
-
 
 /*** ******** Utilities *********** ***/
 /*** ****************************** ***/

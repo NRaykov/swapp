@@ -17,7 +17,7 @@ const Login = ({themeChanger, ...props}) => {
     },
   });
 
-  if (loading) return 'Loading ...';
+  if (loading) return <LoginForm loading={`Signing In ...`}/>;
   if (error) return (
           <LoginForm login={login} themeChanger={themeChanger} error={
             error.graphQLErrors.map(({ message }, i) => (

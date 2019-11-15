@@ -49,11 +49,13 @@
     border: none;
     border-radius: 0.7rem;
 }
-.error {
+.error, .loading {
     font-weight: bold;
-    color: #d97a49;
+
     margin: 1rem 0;
     font-size: 1.8rem;
     text-align: left;
 }
+.error { color: #cb4246; }
+.loading { color: #6885bf; }
 
