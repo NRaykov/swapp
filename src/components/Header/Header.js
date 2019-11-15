@@ -13,8 +13,9 @@ const Header = ({themeChanger}) => {
           <>
             <header className="header">
               <Navbar className="navbar" light expand="md">
-                <NavbarBrand href="#" className="logo"
-                             onClick={ themeChanger }
+                <NavbarBrand href="/#"
+                             className="logo"
+                             onClick={themeChanger}
                 >swapp</NavbarBrand>
                 <NavbarToggler onClick={toggle}/>
                 <Collapse isOpen={isOpen} navbar>

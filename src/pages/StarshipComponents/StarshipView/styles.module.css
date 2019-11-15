@@ -55,7 +55,11 @@
 
 /* Chart Panel */
 .chartPanel {
-    padding: 3rem;
     background-color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
     border-radius: 1rem;
 }
