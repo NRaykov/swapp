@@ -6,6 +6,6 @@
 
 # Project Info
 
-#### DNS - https://trusting-feynman-7c5c01.netlify.com/
+#### Netlify Domain - https://trusting-feynman-7c5c01.netlify.com/
 #### Continuous Deployment - Netlify
 
