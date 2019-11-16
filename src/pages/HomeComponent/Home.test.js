@@ -4,8 +4,6 @@ import Home from './Home';
 import '../../setupTests';
 import { shallow } from 'enzyme';
 
-
-
 describe('<Home /> with no props', () => {
   test("renders", ()=>{
     const container = shallow(

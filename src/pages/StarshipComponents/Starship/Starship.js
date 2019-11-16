@@ -6,8 +6,8 @@ import StarshipView from '../StarshipView/StarshipView';
 import ErrorHandler from "../../../components/LoginSystem/guards/errorHandler";
 
 const Starship = () => {
-  let { starshipId } = useParams() ;
 
+  let { starshipId } = useParams() ;
   const {data, loading, error} = useQuery(starshipQuery, {
     variables: {starshipId}
   });

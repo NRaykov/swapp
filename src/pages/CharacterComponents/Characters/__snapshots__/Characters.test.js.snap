@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test "Characters" Component Should compare the component with a snapshot 1`] = `"Loading ..."`;
+
+exports[`Snapshot test Should compare the component with a snapshot 1`] = `"Loading ..."`;
