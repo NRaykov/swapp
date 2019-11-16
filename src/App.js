@@ -50,7 +50,7 @@ export const AppComponent = () => {
     const [theme, setTheme] = useState('light');
     const themeChanger = ThemeChanger(theme, setTheme);
     const getTheme = localStorage.getItem('Theme');
-    console.log(`Current Theme is: ${getTheme.toUpperCase()}`);
+    console.log(getTheme);
 
 
   return (
