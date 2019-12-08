@@ -49,6 +49,8 @@ export const AppComponent = () => {
     /**** Set Theme to LocalStorage ****/
     const [theme, setTheme] = useState('light');
     const themeChanger = ThemeChanger(theme, setTheme);
+
+    localStorage.setItem('Theme', 'light');
     const getTheme = localStorage.getItem('Theme');
     console.log(getTheme);
 
