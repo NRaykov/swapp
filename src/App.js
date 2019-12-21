@@ -48,12 +48,12 @@ export const AppComponent = () => {
 
     /**** Set Theme to LocalStorage ****/
     const [theme, setTheme] = useState('light');
+    localStorage.setItem('Theme', theme);
+
     const themeChanger = ThemeChanger(theme, setTheme);
-
-    localStorage.setItem('Theme', 'light');
     const getTheme = localStorage.getItem('Theme');
-    console.log(getTheme);
 
+    console.log(getTheme);
 
   return (
         <ApolloProvider client={client}>
